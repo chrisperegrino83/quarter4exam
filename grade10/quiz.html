@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade 10 Assessment</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" href="../assets/ulhs-logo.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+<body>
+    <div id="top-right-ui">
+        <span id="student-name-badge" class="name-badge"></span>
+        <button id="bg-toggle" class="fab" title="Change Background">BG</button>
+        <button id="theme-toggle" class="fab" title="Switch to Dark">☾</button>
+    </div>
+    <div id="loader-overlay">
+        <div class="spinner"></div>
+        <div class="loader-text">Loading…</div>
+    </div>
+    <div class="container">
+        <img src="../assets/ulhs-logo.png" alt="School Logo" class="school-logo" />
+        <h2 id="question">Question loading...</h2>
+        <div id="options-container"></div>
+        <p id="score-display">Score: 0</p>
+        <a href="../index.html" class="btn btn-home">Back to Menu</a>
+    </div>
+    <footer class="app-footer">© 2026 Sir Chris | Version: <span id="app-version"></span></footer>
+    <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+  </html>
