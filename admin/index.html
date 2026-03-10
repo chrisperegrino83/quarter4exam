@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - Assessment Portal</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .login-form input {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        .error-msg {
+            color: #e74c3c;
+            font-size: 0.9rem;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="../assets/ulhs-logo.png" alt="School Logo" class="school-logo" />
+        <h1>Admin Login <br><p style="font-size: 14px;">(for Sir Chris only)</p></h1>
+        <div class="login-form">
+            <input type="password" id="password" placeholder="Enter Admin Password" autofocus>
+            <p id="error" class="error-msg">Incorrect password. Please try again.</p>
+            <button id="login-btn" class="btn g7">Login</button>
+        </div>
+        <a href="../index.html" style="display: block; margin-top: 20px; color: #666; text-decoration: none;">Back to Home</a>
+    </div>
+
+    <script>
+        const passInput = document.getElementById('password');
+        const loginBtn = document.getElementById('login-btn');
+        const errorMsg = document.getElementById('error');
+
+        function doLogin() {
+            if (passInput.value === 'admin123') {
+                sessionStorage.setItem('admin_auth', 'true');
+                window.location.href = 'dashboard.html';
+            } else {
+                errorMsg.style.display = 'block';
+                passInput.value = '';
+                passInput.focus();
+            }
+        }
+
+        loginBtn.addEventListener('click', doLogin);
+        passInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') doLogin();
+        });
+    </script>
+</body>
+</html>

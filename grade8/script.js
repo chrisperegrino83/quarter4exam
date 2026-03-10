@@ -1,255 +1,4 @@
-let questions = [
-    {
-        q: "Ang kabuuang aspeto ng pagkatao ng isang tao ay may kinalaman sa kanyang sekswal na oryentasyon, aydentidad sa kasarian, at mga relasyon. Ang pahayag ay tumutukoy sa kahulugan ng ______.",
-        a: ["kasarian", "oryentasyon", "relasyon", "sekswalidad"],
-        correct: "sekswalidad"
-    },
-    {
-        q: "Si Anna ay nagbahagi kay Marie ng nararanasang pagkalito tungkol sa kanyang sekswalidad. Ito ay tungkol sa kanyang pagkahumaling sa kaparehong kasarian. Nalilito siya sa kaniyang nararamdaman dahil pinapahalagahan nya ang mga bagay na taliwas sa kaniyang kasarian. Ito ay tumutukoy sa __________.",
-        a: ["Panlipunang gampanin", "Pampolitikang gampanin", "Pansekswal na usapin", "Pang-akademikong talakayan"],
-        correct: "Pansekswal na usapin"
-    },
-    {
-        q: "Sa pag-uusap ng magkasintahan na sina Cris at Diana, tinanong ni Diana kung paano niya patutunayan ang kanyang pagmamahal kay Cris. Sinagot naman siya ni Cris kung ibibigay niya ang kanyang sarili kahit hindi pa sila kasal. Mabilis naman ang pagtanggi ni Diana sapagkat matibay ang kanyang pananaw na ang kalinisang puri ay napakahalaga sa isang nagdadalaga tulad niya. Anong salita ang nagpapakita ng matatag na paninindigan tungkol sa kalinisang puri?",
-        a: ["pagbibigay", "paghusga", "pagpayag", "pagtanggi"],
-        correct: "pagtanggi"
-    },
-    {
-        q: "Si Jeff ay laging nakikinig sa kanyang ina kapag siya ay pinapayuhan nito tungkol sa kanyang pagbibinata. Ipinaliliwanag ng kanyang ina ang mga tamang hakbang na may kaugnayan sa kanyang sekswalidad. Ang pakikinig ni Jeff sa kanyang ina ay naglalarawan ng pagiging __________.",
-        a: ["masunurin", "magalang", "mapagkumbaba", "matapat"],
-        correct: "masunurin"
-    },
-    {
-        q: "Ang tamang kilos na makatutulong sa paghahanda sa susunod na yugto ng buhay bilang nagbibinata at nagdadalaga ay maaaring maganap sa pamamagitan ng pagpaplano ng mga layunin para sa edukasyon, kalusugan, at mga personal na aspeto ng buhay. Ano ang pangunahing paksa ng pahayag?",
-        a: ["tamang kilos", "paghahanda", "pagpaplano", "buhay"],
-        correct: "tamang kilos"
-    },
-    {
-        q: "Ang pasalita, pisikal, sosyal o relasyunal at cyber ay mga uri ng pambubulas. Anong uri ng pambubulas ang pananakit sa isang indibidwal o pangkat at paninira ng kaniyang mga pag-aari kabilang rito ang paninipa, pananampal, at panununtok?",
-        a: ["Cyber na Pambubulas", "Pasalitang Pambubulas", "Pisikal na Pambubulas", "Relasyonal na Pambubulas"],
-        correct: "Pisikal na Pambubulas"
-    },
-    {
-        q: "Ang pagmamahal ay may iba’t ibang uri tulad ng pagmamahal sa kalikasan, pagmamahal sa sarili at sa iba, pagmamahal sa materyal na bagay at pagmamahal sa tagumpay. Anong uri ng pagmamahal ang ipinapahiwatig ng pahayag na, “Mahalin mo ang iyong sarili upang matutuhan mong mahalin ang iyong kapwa”.",
-        a: ["Pagmamahal sa kalikasan", "Pagmamahal sa materyal na bagay", "Pagmamahal sa sarili at sa iba", "Pagmamahal sa tagumpay"],
-        correct: "Pagmamahal sa sarili at sa iba"
-    },
-    {
-        q: "Anong uri ng pambubulas ang naranasan ni Rebecca? (Base sa kwento: sulatan ako ng mga masamang salita, tinukso-tukso, sinundan-sundan pag-uwi at niloko sa telepono)",
-        a: ["Cyber na Pambubulas", "Pasalitang Pambubulas", "Pisikal na Pambubulas", "Relasyonal na Pambubulas"],
-        correct: "Pasalitang Pambubulas"
-    },
-    {
-        q: "Ano ang naging epekto kay Rebecca ng pambubulas sa kaniya ng kaniyang kaklase?",
-        a: ["hinanap ang sarili", "kinamuhian ang sarili", "nahirapan sa pag-aaral", "napilitang gumanti"],
-        correct: "kinamuhian ang sarili"
-    },
-    {
-        q: "Ano ang maling hakbang na ginawa ni Rebecca upang malampasan ang karanasan niya sa paaralan?",
-        a: ["Pagsampal at pagmura sa kaklase", "Pagsumbong sa guidance counselor", "Pagsasabi sa principal", "Hindi nabanggit."],
-        correct: "Pagsampal at pagmura sa kaklase"
-    },
-    {
-        q: "“Ang sekswalidad ay behikulo upang maging ganap na tao – lalaki o babae -na ninanais mong maging”. Alin sa mga sumusunod ang tumutugma sa pahayag na ito.",
-        a: ["Maaari mong piliin ang iyong sekswalidad", "Ang sekswalidad ay kabuuan ng iyong pagkatao", "Ang sekswalidad ay daan upang maging ganap na tao", "Mahalaga ang iyong pagiging lalaki o babae sa pipiliin mong kurso"],
-        correct: "Ang sekswalidad ay daan upang maging ganap na tao"
-    },
-    {
-        q: "Sa kasalukuyan ang suliranin ng mga LGBTQ+ ay karaniwang nagaganap sa mga paaralan. Isang grupo ng mga LGBTQ+ ang nagtipon-tipon sa harap ng silid-aklatan. Isa sa kanila ay nagbabahagi ng nararanasang diskriminasyon at pananakit dahil sa kanyang sekswal na oryentasyon. Nalulungkot siya sapagkat bumaba ang kanyang mga marka dahil dito. Ang sitwasyon ay nagpapakita ng __________.",
-        a: ["kontemporaryong isyu na may kinalalaman sa sekswalidad", "normal na pangyayari sa kasalukuyan sa loob ng paaralan", "katanggap-tanggap na sitwasyon sa pagitan ng mga Kabataan", "napapanahong isyu na may kinalaman sa akademikong hamon."],
-        correct: "kontemporaryong isyu na may kinalalaman sa sekswalidad"
-    },
-    {
-        q: "Ang tamang pananaw sa sekswalidad ay nakatutulong sa pag-unawa sa tamang relasyon, respeto, at pagmamahal sa iba. Ito ay dahilan upang maisakatuparan ang bokasyon na magmahal. Ang pahayag ay tungkol sa tamang pananaw sa ________________.",
-        a: ["lipunan", "pulitika", "sekswalidad", "akademiko"],
-        correct: "sekswalidad"
-    },
-    {
-        q: "Si Joe ay nagkaroon ng lihim na paghanga kay Rosie, ang kanyang best friend. Isang araw nakiusap si Rosie kay Joe na maging tulay sa kaklaseng napupusuan. Pumayag naman si Joe, subalit habang sila ay nagkakamabutihan, si Joe ay nasasaktan at nakaramdam ng selos. Ano ang nararapat na gawin ni Joe?",
-        a: ["Pigilan na ang pagiging tulay upang hindi na sila lubos na magkalapit.", "Kakausapin ni Joe si Rosie at sasabihin ang totoong nararamdaman.", "Hihingi ng payo sa ibang kaibigan upang malaman ang nararapat na gawin.", "Lumapit sa guidance counselor ng paaralan sapagkat makapagbibigay ito sa kanya ng nararapat na payo"],
-        correct: "Kakausapin ni Joe si Rosie at sasabihin ang totoong nararamdaman."
-    },
-    {
-        q: "Kinahihiligan ng iyong mga kaklase ang panonood ng mga malalaswang pelikula sa bahay ng isa pang kaklase. Wala ang kanyang mga magulang dahil nagtatrabaho ang mga ito. Kinausap ka nila na sumama upang hindi ka maging mangmang sa usapin ng sex. Ikaw ay natatakot na mabulas. Mula sa mga impormasyong ito, ano ang mga hakbang na gagawin mo?",
-        a: ["Hindi sasama sa kanila, at pabayaan sila sa kanilang gusto.", "Sasama ka dahil natural lamang sa mga kabataan ang mag eksperimento", "Isusumbong sa inyong guro o kanilang mga magulang dahil makakasama ito sa kanilang isipan.", "Hihimukin na huwag ito gawin dahil ito ay makakasama sa kanila at maaaring magdolot ng problema kapag nalaman ng kanilang tagapayo."],
-        correct: "Hihimukin na huwag ito gawin dahil ito ay makakasama sa kanila at maaaring magdolot ng problema kapag nalaman ng kanilang tagapayo."
-    },
-    {
-        q: "Matalino sa klase si Marie ngunit mahilig siyang manakit ng aspektong pandamdamin at pangpisikal ng kanyang mga kaklase. Anong uri ng umiiral na karahasan sa paaralan ang ginagawa ni Marie?",
-        a: ["gang", "pagnanakaw", "pambubulas o bullying", "sexual harassment o panliligalig sa sekswal"],
-        correct: "pambubulas o bullying"
-    },
-    {
-        q: "Basahin ang mga pahayag sa ibaba. Alin ang hindi nagpapakita ng tunay na pagmamahal sa kapwa?",
-        a: ["Paggalang sa kaniyang dignidad bilang tao", "Pagbibigay sa kaniya sa lahat ng nais niya sa buhay", "Pagmamahal sa kaniya na may kaakibat na katarungan", "Pagtanggap sa kaniya anuman ang estado niya sa buhay"],
-        correct: "Pagbibigay sa kaniya sa lahat ng nais niya sa buhay"
-    },
-    {
-        q: "Ano ang maaaring epekto ng kawalan ng tagapayo sa sitwasyon ng pambubulas?",
-        a: ["Magiging maayos ang takbo ng klase", "Masisiguro ang kaligtasan ng bawat mag-aaral", "Madali itong maaayos ng mga mag-aaral mismo", "Mas malayang makakagalaw ang mga nambubulas"],
-        correct: "Mas malayang makakagalaw ang mga nambubulas"
-    },
-    {
-        q: "May magagawa ka ba sa nasaksihan mong pambubulas na sitwasyon?",
-        a: ["Opo. Aawatin ko ang mga kaklase.", "Opo. Makikisali ako sa pambubulas.", "Wala po. Hahayaan ko lang ang mga kaklase.", "Wala po. Magpapanggap ako na walang nakita."],
-        correct: "Opo. Aawatin ko ang mga kaklase."
-    },
-    {
-        q: "Anong angkop na hakbang ang iyong isasagawa upang maiwasan ang pambubulas na iyong masaksihan?",
-        a: ["Lapitan ang biktima ng pambubulas at aluin siya.", "Isawalang-bahala ang nakita upang hindi na makialam.", "Ipaalam agad sa inyong guro o tagapayo upang maagapan ang sitwasyon.", "Tawagin ang pansin ng mga nambubulas at ipakita ang pagtutol sa kanilang ginagawa."],
-        correct: "Ipaalam agad sa inyong guro o tagapayo upang maagapan ang sitwasyon."
-    },
-    {
-        q: "Si Faye ay may mga kaibigan na may iba't ibang oryentasyong sekswal. Ang mga ito ay nalilito sa kanilang mga gusto at nararamdaman. Isang araw, tinanong siya ng isa sa kaniyang mga kaibigan tungkol sa kahulugan ng sekswalidad. Ano ang pinakamainam na sagot na maaaring ibigay ni Faye upang mas maunawaan ng kanyang kaibigan ang sekswalidad?",
-        a: ["Ang sekswalidad ay tungkol lang sa mga relasyon ng lalaki at babae.", "Ang sekswalidad ay isang bagay na hindi na dapat pag-usapan dahil hindi ito malaswang pakinggan.", "Ang sekswalidad ay tanging tungkol lamang sa pagkakaroon ng asawa. Kaya hindi dapat ito itinatanong nga mga tinedyer katulad nila.", "Ang sekswalidad ay isang malawak na konsepto na tumutukoy sa ating mga pagnanasa, oryentasyon, at pagkakakilanlan na maaaring mag-iba mula sa bawat isa."],
-        correct: "Ang sekswalidad ay isang malawak na konsepto na tumutukoy sa ating mga pagnanasa, oryentasyon, at pagkakakilanlan na maaaring mag-iba mula sa bawat isa."
-    },
-    {
-        q: "Isang araw, nakarinig si Maria ng balita tungkol sa mga hakbang na isinasagawa ng ilang paaralan upang itaguyod ang edukasyon tungkol sa sekswalidad at kasarian. Ano ang pinakamainam na reaksyon ni Maria upang maging aktibong bahagi sa pagtanggap at pagpapalaganap ng tamang impormasyon tungkol sa isyung ito?",
-        a: ["Itigil ang mga edukasyon at proyekto tungkol sa sekswalidad dahil hindi ito mahalaga.", "Iwasan ang pakikipag-usap tungkol sa sekswalidad at kasarian dahil ito ay isang sensitibong paksa.", "Sabihin na hindi siya interesado sa mga usapin tungkol sa sekswalidad at hayaan na lang ang iba ang magdesisyon.", "Suportahan ang mga inisyatiba ng paaralan at makibahagi sa mga talakayan upang mas mapalawak ang kaalaman ng mga kabataan sa tamang impormasyon tungkol sa sekswalidad at kasarian."],
-        correct: "Suportahan ang mga inisyatiba ng paaralan at makibahagi sa mga talakayan upang mas mapalawak ang kaalaman ng mga kabataan sa tamang impormasyon tungkol sa sekswalidad at kasarian."
-    },
-    {
-        q: "Si Carla at si Juan ay parehong nagdadalaga at nagbibinata. Habang lumalaki sila, may mga pagkakataon na nahihirapan silang tanggapin ang kanilang nararamdaman at mga pagbabago sa katawan. Ano ang pinakamahalagang hakbang na dapat nilang gawin upang magkaroon ng tamang pananaw sa sekswalidad at maging handa sa mga susunod na yugto ng kanilang buhay?",
-        a: ["Magtiwala sa mga kaibigan at sundin ang kanilang mga opinyon ukol sa sekswalidad.", "Iwasan na lang ang usapin tungkol sa sekswalidad at hayaan na lang mangyari ang lahat.", "Magtakda ng mga sariling pamantayan na hindi nakabase sa mga payo mula sa mga nakatatanda o eksperto.", "Makipag-usap sa mga magulang o guro tungkol sa mga nararamdaman at pagbabago upang mas maging malinaw ang kanilang pananaw sa sekswalidad."],
-        correct: "Makipag-usap sa mga magulang o guro tungkol sa mga nararamdaman at pagbabago upang mas maging malinaw ang kanilang pananaw sa sekswalidad."
-    },
-    {
-        q: "Ang tamang kilos ay mahalaga bilang paghahanda sa yugto ng pagbibinata at pagdadalaga ng mga kabataan. Si Ana, isang 13-taong gulang na batang babae, ay nagsimulang magpakita ng mas matinding interes sa kanyang pag-aaral at nakatutok na sa kanyang mga responsibilidad sa bahay. Ano ang ibig sabihin ng mga kilos na ipinapakita ni Ana sa paghahanda sa kanyang pagdadalaga?",
-        a: ["Si Ana ay labis na nag-aalala tungkol sa kanyang katawan at hitsura.", "Si Ana ay nakatuon lamang sa pag-aaral at hindi na nakikisalamuha sa ibang tao.", "Si Ana ay natututo ng mga responsibilidad at pagpapasya na magagamit niya sa hinaharap.", "Si Ana ay naghahanap ng mga bagong libangan at kasiyahan na makakaapekto sa kanyang pag-aaral."],
-        correct: "Si Ana ay natututo ng mga responsibilidad at pagpapasya na magagamit niya sa hinaharap."
-    },
-    {
-        q: "Si Miguel ay laging tinutukso ng grupo nina Marco dahil sa kanyang lumang uniporme. Tinatawag siyang “pulubi” at madalas binabatuhan ng papel at nilalagyan ng bato ang kanyang bag. Anong uri ng pambubulas ang makikita sa sitwasyon?",
-        a: ["Pasalita at Pisikal", "Pasalita at Sosyal", "Pisikal at Sosyal", "Pasalita, Pisikal at Sosyal"],
-        correct: "Pasalita, Pisikal at Sosyal"
-    },
-    {
-        q: "“Mahalin mo ang iyong sarili upang matutuhan mong mahalin ang iyong kapuwa, pagmamahal na pinagniningas ng halimbawa ng tunay na pagmamahal na ibinibigay ng Diyos”. Ano ang gagawin mo batay sa mensahe ng pahayag?",
-        a: ["Magpatawad sa sarili at sikaping magbago.", "Iwasan ang pakikisalamuha sa ibang tao upang maprotektahan ang sarili.", "Ibigay ang lahat ng oras at lakas para sa iba, kahit mawalan ng panahon para sa sarili.", "Pagyamanin ang pagmamahal sa sarili upang mas maipahayag ang pagmamahal sa kapuwa."],
-        correct: "Pagyamanin ang pagmamahal sa sarili upang mas maipahayag ang pagmamahal sa kapuwa."
-    },
-    {
-        q: "Batay sa sitwasyon (Liza at Mark), ano ang maaaring mangyari kung walang sinuman ang kumilos upang awatin ang pambubulas kay Mark?",
-        a: ["Maaaring huminto ang mga nambubulas nang kusa.", "Magiging masaya ang mga nanonood sa nangyayari.", "Magpapatuloy ang pambubulas at maaaring mas lumala ang sitwasyon.", "Maayos na makakabalik si Mark sa klase nang walang epekto sa kanya."],
-        correct: "Magpapatuloy ang pambubulas at maaaring mas lumala ang sitwasyon."
-    },
-    {
-        q: "Paano makatutulong ang pag-aksyon ni Liza sa sitwasyon ng pambubulas?",
-        a: ["Mas magiging agresibo ang mga nambubulas.", "Walang epekto dahil si Liza ay hindi awtoridad.", "Magagalit ang iba pang nanonood dahil nakialam siya.", "Mabibigyan ng lakas ng loob si Mark at maaaring matigil ang pambubulas."],
-        correct: "Mabibigyan ng lakas ng loob si Mark at maaaring matigil ang pambubulas."
-    },
-    {
-        q: "Paano makatutulong ang pagsabi sa guro o tagapayo tungkol sa insidente ng pambubulas?",
-        a: ["Mapaparusahan agad ang biktima ng insidente.", "Magiging mas takot ang ibang mag-aaral sa kanilang guro.", "Mawawalan ng tiwala ang mga mag-aaral sa kanilang guro.", "Mabibigyan ng gabay ang nambubulas upang maunawaan ang kanyang kilos."],
-        correct: "Mabibigyan ng gabay ang nambubulas upang maunawaan ang kanyang kilos."
-    },
-    {
-        q: "Alin sa sumusunod ang maaaring gawin upang maiwasan ang mga ganitong sitwasyon ng karahasan sa paaralan?",
-        a: ["Manatiling tahimik at iwasan ang pakikialam.", "Magbigay ng gantimpala sa mga nambubulas upang tumigil sila.", "Ipagwalang-bahala ang nangyayari upang hindi lumala ang sitwasyon.", "Magtulungan ang mga mag-aaral sa pag-uulat ng mga insidente ng karahasan."],
-        correct: "Magtulungan ang mga mag-aaral sa pag-uulat ng mga insidente ng karahasan."
-    },
-    {
-        q: "Sa isang talakayan sa klase, tinalakay ang kahulugan ng sekswalidad at ang mga aspeto nito, tulad ng oryentasyong sekswal, pagkakakilanlan, at mga personal na desisyon. Alin sa mga sumusunod ang kahalagahan ng pagkaroon ng tamang pag-unawa sa sekswalidad sa panahon ng kabataan?",
-        a: ["Ito ay makakatulong upang magkaroon ng tamang pag-uugali at pananaw tungkol sa mga relasyon.", "Hindi naman talaga mahalaga ang sekswalidad, kaya't hindi na kailangang maglaan ng pansin dito.", "Ito ay nagdudulot lamang ng kalituhan sa kabataan at hindi kailangan pagtuunan ng pansin.", "Ito ay tumutukoy lamang sa mga pisikal na aspeto ng katawan at hindi na kailangang pag-isipan ang iba pang aspeto."],
-        correct: "Ito ay makakatulong upang magkaroon ng tamang pag-uugali at pananaw tungkol sa mga relasyon."
-    },
-    {
-        q: "Ang teenage pregnancy ay isa sa mga napapanahong isyu ng sekswalidad sa mga kabataan upang mas maging may alam sila sa mga epekto ng maagang pagbubuntis at maggive sa kanila ng tamang kaalaman upang makagawa ng tamang desisyon. Paano makakatulong ang tamang edukasyon tungkol sa sekswalidad sa pagpigil ng teenage pregnancy?",
-        a: ["Makakatulong ito upang gawing mas normal at katanggap-tanggap ang maagang pagbubuntis sa mga kabataan.", "Makakatulong ito upang ipaliwanag sa mga kabataan na ang maagang pagbubuntis ay walang epekto sa kanilang buhay at kinabukasan.", "Makakatulong ito upang hikayatin ang mga kabataan na magsimula ng pamilya nang maaga upang matutunan nilang magtagumpay sa buhay.", "Makakatulong ito upang mas maging may alam ang mga kabataan sa mga epekto ng maagang pagbubuntis at magbigay sa kanila ng tamang kaalaman upang makagawa ng responsableng desisyon."],
-        correct: "Makakatulong ito upang mas maging may alam ang mga kabataan sa mga epekto ng maagang pagbubuntis at magbigay sa kanila ng tamang kaalaman upang makagawa ng responsableng desisyon."
-    },
-    {
-        q: "Si Dwaine ay nakatagpo ng isang website na naglalaman ng pornograpiya. Ang pornograpiya ay ang panonood ng mga malalaswang palabas o babasahin. Ano ang pinakamainam na hakbang na dapat niyang gawin upang mapanatili ang tamang pananaw at maiwasan ang mga negatibong epekto ng pornograpiya sa kanyang buhay?",
-        a: ["Magpatuloy sa pag-browse at hindi na mag-alala, dahil natural lang ang makakita ng ganitong mga bagay.", "Magtanong sa kanyang mga kaibigan kung tama bang tingnan ang pornograpiya upang makakuha ng opinyon mula sa iba.", "Hindi na lamang magsalita at hindi na subukan na iwasan ito, sapagkat wala naman daw masama.", "Iwasan ang mga ganitong uri ng materyal at agad na i-report ang website sa mga may awtoridad o gumamit ng mga paraan upang ito'y matanggal."],
-        correct: "Iwasan ang mga ganitong uri ng materyal at agad na i-report ang website sa mga may awtoridad o gumamit ng mga paraan upang ito'y matanggal."
-    },
-    {
-        q: "Ipinahiya ang isang mag-aaral sa social media, anong uri ng karahasan at ang maaaring epekto nito sa biktima?",
-        a: ["Pisikal na karahasan - Maaaring magdulot ng pisikal na pinsala sa biktima.", "Pasalitang pambubulas - Makasisira sa relasyon ng biktima sa kanyang mga kaibigan.", "Pananakot sa paaralan - Maaaring magdulot ng takot na pumasok sa eskwela.", "Cyberbullying - Maaaring magdulot ng emosyonal na pagdurusa at mababang tiwala sa sarili."],
-        correct: "Cyberbullying - Maaaring magdulot ng emosyonal na pagdurusa at mababang tiwala sa sarili."
-    },
-    {
-        q: "Ano ang angkop na hakbang na maaaring gawin upang matugunan at maiwasan ang cyber-bullying?",
-        a: ["Hayaan na lamang ang mga mensahe at huwag pansinin ang mga ito.", "Itago ang sitwasyon at huwag ipaalam sa sinuman para maiwasan ang gulo.", "Ipagbigay-alam ang mga nambubulas sa mga online platform at sa mga guro o magulang.", "Gumanti sa pamamagitan ng pagpapadala ng masasakit na salita sa mga nambubulas."],
-        correct: "Ipagbigay-alam ang mga nambubulas sa mga online platform at sa mga guro o magulang."
-    },
-    {
-        q: "Ano ang pinakamabisang paraan upang maiwasan ang anumang uri ng karahasan, tulad ng cyber-bullying?",
-        a: ["Gumawa ng pekeng account upang gantihan ang mga nambubulas.", "Palaging umiwas sa paggamit ng social media o anumang online platform.", "Manatiling tahimik at hayaang magpatuloy ang mga nambubulas upang hindi lumala ang sitwasyon.", "Palakasin ang kamalayan tungkol sa cyberbullying sa pamamagitan ng paglahok sa mga pagpupulong at suporta ng paaralan."],
-        correct: "Palakasin ang kamalayan tungkol sa cyberbullying sa pamamagitan ng paglahok sa mga pagpupulong at suporta ng paaralan."
-    },
-    {
-        q: "Paano makakatulong ang mga mag-aaral at guro sa pagsugpo at pag-iwas sa mga uri ng karahasan tulad ng cyberbullying?",
-        a: ["Iwasan na lamang ang mga nagiging biktima ng cyberbullying at hindi makialam sa kanilang mga sitwasyon.", "Ipunin ang mga mag-aaral na nagiging biktima at gawing sikat ang kanilang mga problema upang kaawaan ng iba.", "Magbigay ng mga seminar at workshop tungkol sa epekto ng cyberbullying at mga paraan upang labanan ito.", "Magpatuloy sa pagpapakalat ng mga negatibong komento sa social media upang ipakita ang kanilang opinyon."],
-        correct: "Magbigay ng mga seminar at workshop tungkol sa epekto ng cyberbullying at mga paraan upang labanan ito."
-    },
-    {
-        q: "Ang sekswalidad ay isang kumplikadong bahagi ng ating pagkatao na may kaugnayan sa ating oryentasyon, pagkakakilanlan, at mga personal na karanasan. Pumili ng pinakamahusay na sagot na nagpapakita ng mahalagang papel ng sekswalidad sa pag-unawa ng isang tao sa kanyang sarili at sa ibang tao.",
-        a: ["Ang sekswalidad ay mahalagang aspeto ng buhay ng tao.", "Ang sekswalidad ay isang lihim na aspeto ng ating buhay na hindi dapat pag-usapan sa publiko.", "Ang sekswalidad ay tumutukoy lamang sa pisikal na aspekto ng katawan at hindi dapat bigyan ng pansin ang emosyonal na aspeto nito.", "Ang sekswalidad ay tanging tungkol sa mga romantikong relasyon at hindi nauugnay sa ating pang-araw-araw na buhay."],
-        correct: "Ang sekswalidad ay mahalagang aspeto ng buhay ng tao."
-    },
-    {
-        q: "Mahalaga ang pag-uusap tungkol sa mga hangganan, mga layunin, at mga responsibilidad sa relasyon kasama ang mga magulang at sikaping sundin ang kanilang mga payo upang ito ay magkaroon ng positibong epekto sa sarili. Alin sa mga sumusunod ang pinakamahusay na hakbang na maaaring gawin ng isang kabataan na nagsisimula nang magka-interes sa pakikipagrelasyon?",
-        a: ["Magpabaya sa mga pangarap at mag-pokus lamang sa relasyon.", "Magmadali na pumasok sa relasyon dahil ito ay bahagi ng pagiging sikat at cool sa mga kaibigan.", "Pumili ng makikipagrelasyon nang hindi iniisip ang mga epekto nito sa kanilang pag-aaral, pamilya, at kalusugan.", "Maglaan ng oras kasama ang mga magulang upang pag-usapan ang tungkol sa pakikipag-ugnayan sa kabilang kasarian"],
-        correct: "Maglaan ng oras kasama ang mga magulang upang pag-usapan ang tungkol sa pakikipag-ugnayan sa kabilang kasarian"
-    },
-    {
-        q: "Mahalaga ang bukas na komunikasyon tungkol sa sekswalidad at kasarian sa mga magulang, guro, at iba pang nakatatanda upang maunawaan ang mga responsibilidad at pagpapahalaga sa relasyon bilang paghahanda sa pagbibinata at pagdadalaga, at sa pagtupad ng bokasyon na magmahal sa hinaharap. Alin sa mga sumusunod na hakbang ang pinakamahalaga upang magkaroon ng tamang pananaw sa sekswalidad?",
-        a: ["Panatilihin ang bukas na komunikasyon sa pamilya, guro at mga nakatatanda.", "Magmadali upang pumasok sa mga relasyon, sapagkat ito ay bahagi ng pagiging matanda at cool sa mga kaibigan.", "Huwag pagtuunan ng pansin ang sekswalidad at kasarian at iwasan na lamang ang pag-uusap tungkol dito.", "Mag-pokus lamang sa mga pisikal na aspeto ng sekswalidad at hindi pagtuunan ng pansin ang emosyonal at moral na aspeto ng relasyon."],
-        correct: "Panatilihin ang bukas na komunikasyon sa pamilya, guro at mga nakatatanda."
-    },
-    {
-        q: "Mahalaga ang pag-unawa sa sarili at kahalagahan ng respeto at pag-aalaga sa kapuwa bago pumasok sa isang relasyon bilang paghahanda sa yugto ng pagbibinata at pagdadalaga upang matutunan ang pagtupad ng bokasyon na magmahal. Alin sa mga sumusunod na hakbang ang pinakamahalaga upang maisagawa ang respeto at pag-unawa sa sarili at kapuwa.",
-        a: ["Magsimula agad ng seryosong relasyon upang malaman kung ano ang tunay na ibig sabihin ng pagmamahal.", "Iwasan ang pag-isip tungkol sa relasyon at mas pagtuunan ng pansin ang mga materyal na bagay.", "Mag-pokus lamang sa pisikal na aspeto ng mga relasyon at huwag alalahanin ang emosyonal at mental na kalusugan.", "Maglaan ng oras upang mas mapalalim ang pag-unawa sa sarili at sa kahalagahan ng respeto at pag-aalaga sa iba bago pumasok sa isang relasyon."],
-        correct: "Maglaan ng oras upang mas mapalalim ang pag-unawa sa sarili at sa kahalagahan ng respeto at pag-aalaga sa iba bago pumasok sa isang relasyon."
-    },
-    {
-        q: "Anong mga hakbang ang maaaring gawin upang matugunan ang mga uri, sanhi, at epekto ng karahasan sa paaralan tulad ng pambubulas at cyberbullying?",
-        a: ["Pagtanggap at pagpapalakas ng mga sanhi ng karahasan, tulad ng poot o inggit, sa halip na ito ay hadlangan.", "Pagpapataw ng mabigat na parusa sa mga nagiging biktima ng karahasan upang mapagtibay ang disiplina sa paaralan.", "Pagbibigay ng reward system sa mga mag-aaral na hindi kasali sa anumang uri ng karahasan upang maging modelo sa iba.", "Pagtutok sa pagpapalaganap ng kamalayan tungkol sa epekto ng karahasan sa lahat ng mag-aaral at guro upang maiwasan ang mga ganitong insidente."],
-        correct: "Pagtutok sa pagpapalaganap ng kamalayan tungkol sa epekto ng karahasan sa lahat ng mag-aaral at guro upang maiwasan ang mga ganitong insidente."
-    },
-    {
-        q: "Paano makatutulong ang pagpapahalaga at pagmamahal sa sarili at kapwa sa pag-iwas at pagtugon sa karahasan sa paaralan?",
-        a: ["Ang pagmamahal sa kapwa ay nagiging sanhi ng higit pang hidwaan at hindi makakatulong sa paglutas ng mga problema.", "Ang pagmamahal sa sarili ay magdudulot ng labis na pansariling kapakinabangan at hindi mag-iintindi sa iba.", "Ang pagmamahal sa sarili at kapwa ay magpapalakas sa mag-aaral na magsalita laban sa karahasan at magbigay ng suporta sa mga biktima.", "Ang pagpapahalaga sa sarili ay hindi mahalaga sa pag-iwas sa karahasan, basta’t matutunan lang kung paano makaligtas sa mga isyu."],
-        correct: "Ang pagmamahal sa sarili at kapwa ay magpapalakas sa mag-aaral na magsalita laban sa karahasan at magbigay ng suporta sa mga biktima."
-    },
-    {
-        q: "Paano nakatutulong ang pagiging handa ni Miguel na mag-report at makialam sa sitwasyon upang maiwasan ang karahasan sa paaralan?",
-        a: ["Pinapalala ang sitwasyon at nagpapaigting ng galit sa mga mag-aaral na kasangkot.", "Nagiging dahilan ng pagiging takot ng iba at hindi na makikialam sa mga isyu sa paaralan.", "Nagiging sanhi ng higit pang alitan at hindi pagkakaintindihan sa pagitan ng mga mag-aaral.", "Nagpapakita ng malasakit at pagnanais na protektahan ang iba, kaya’t naiiwasan ang paglaganap ng karahasan."],
-        correct: "Nagpapakita ng malasakit at pagnanais na protektahan ang iba, kaya’t naiiwasan ang paglaganap ng karahasan."
-    },
-    {
-        q: "Paano nakatulong ang hakbang na isinagawa ni Miguel upang maiwasan at masupil ang karahasan sa paaralan?",
-        a: ["Nagpanggap na hindi niya nakita ang insidente at inisip na hindi na niya kailangang makialam.", "Sumama siya sa mga nambubulas upang hindi siya mapag-iwanan at para makaiwas sa mga isyu.", "Hinayaan na lang niya ang mga nambubulas at hindi nakialam upang hindi magkaroon ng problema.", "Tinulungan ang biktima at agad na nagbigay-alam sa guro at mga magulang ng mga nambubulas upang maagapan ang sitwasyon."],
-        correct: "Tinulungan ang biktima at agad na nagbigay-alam sa guro at mga magulang ng mga nambubulas upang maagapan ang sitwasyon."
-    },
-    {
-        q: "Kung ikaw ay magsasagawa ng isang kampanya upang itaguyod ang tamang edukasyon tungkol sa sekswalidad at pagtanggap sa mga miyembro ng LGBTQ+ community, bumuo ng mga hakbang na pinakamahalaga upang maging epektibo ang iyong kampanya?",
-        a: ["Iwasan ang pakikipag-ugnayan sa mga miyembro ng LGBTQ+ community at magbigay lamang ng impormasyon mula sa mga eksperto.", "Magbigay ng impormasyon na tumutok lamang sa mga negatibong aspeto ng sekswalidad at hindi isama ang mga positibong karanasan ng mga miyembro ng LGBTQ+ community.", "Mag-organisa ng mga seminar at talakayan upang maipaliwanag ang mga karapatan, pagkakaiba-iba ng sekswalidad, at kung paano magbigay ng respeto at pag-unawa sa bawat isa.", "Mag-pokus sa pagpapalaganap ng mga maling pananaw tungkol sa sekswalidad at kasarian upang mapanatili ang tradisyunal na pananaw ng nakararami."],
-        correct: "Mag-organisa ng mga seminar at talakayan upang maipaliwanag ang mga karapatan, pagkakaiba-iba ng sekswalidad, at kung paano magbigay ng respeto at pag-unawa sa bawat isa."
-    },
-    {
-        q: "Ang inyong klase ay naghahanda ng isang proyekto upang ituro ang tamang pananaw sa sekswalidad bilang paghahanda sa pagbibinata at pagdadalaga, paano mo ilalahad ang layunin ng proyekto na nagpapakita ng tamang pag-unawa sa sekswalidad kaugnay ng bokasyong magmahal?",
-        a: ["Mag-pokus lamang sa mga aspeto ng sekswalidad na may kinalaman sa romantikong pagnanasa at hindi isaalang-alang ang mga aspeto ng respeto at pagmamahal.", "Ituro na ang pagmamahal ay hindi kailangan ng malasakit at responsibilidad, basta't magkasama lang ang dalawang tao.", "Magbigay ng mga halimbawa ng mga relasyon na nakatuon lamang sa pisikal na aspeto at hindi isinasaalang-alang ang emosyonal at moral na aspeto ng pagmamahal.", "Ipakita kung paano ang pagkakaroon ng tamang edukasyon sa sekswalidad ay nagiging pundasyon ng malusog na relasyon, na may respeto, pag-unawa, at pagtanggap sa bawat isa."],
-        correct: "Ipakita kung paano ang pagkakaroon ng tamang edukasyon sa sekswalidad ay nagiging pundasyon ng malusog na relasyon, na may respeto, pag-unawa, at pagtanggap sa bawat isa."
-    },
-    {
-        q: "Mahalaga para sa mga kabataan ang paghahanda para sa kanilang pagbibinata at pagdadalaga at magiging handa para sa bokasyong magmahal. Kung ikaw ay magsasagawa ng isang workshop upang matulungan ang mga kabataan sa inyong paaralan, alin sa mga sumusunod ang nararapat na tema ng programa?",
-        a: ["“Paglago ng Pagkatao: Pagtuklas at Pagsasabuhay ng Iyong Potensyal”", "“Pag-angat sa Tagumpay: Mga Hakbang Tungo sa Paghusay ng “Academic Performance”", "“Matalinong Pagpapamahagi: Pagtutok sa Pagtitipid at Pagpapalago ng Kabuhayan”", "“Pagbubukas ng Puso at Isipan: Paghahanda ng Kabataan sa Susunod na Yugto ng Buhay ng Pagbibinata at Pagdadalaga tungo sa Pagkamit ng Bokasyong Magmahal”"],
-        correct: "“Pagbubukas ng Puso at Isipan: Paghahanda ng Kabataan sa Susunod na Yugto ng Buhay ng Pagbibinata at Pagdadalaga tungo sa Pagkamit ng Bokasyong Magmahal”"
-    },
-    {
-        q: "Kung ikaw si Anna, ano ang magiging pamagat ng inyong diskusyon?",
-        a: ["\"Bakit Hindi Dapat Makialam sa Alitan?\"", "\"Pagpaparusa sa mga Pasaway: Solusyon sa Karahasan\"", "\"Ang Pambubulas at Karahasan: Paano Natin Maaagapan?\"", "\"Pag-iwas sa Gulo: Ang Kahalagahan ng Pagkakaroon ng Disiplina sa Klase\""],
-        correct: "\"Ang Pambubulas at Karahasan: Paano Natin Maaagapan?\""
-    },
-    {
-        q: "Kung isa ka sa mga kasamahang peer mediators ni Anna, ano ang pinaka-angkop na layunin ang iyong ibabahagi sa diskusyon?",
-        a: ["Makahanap ng mga paraan para magparusa sa mga sangkot sa karahasan.", "Maiwasan ang responsibilidad ng mga mag-aaral at ipaubaya ang lahat ng solusyon sa guro.", "Turuan ang mga kaklase kung paano ipagtanggol ang kanilang sarili sa pisikal na alitan.", "Talakayin ang mga dahilan at epekto ng karahasan sa paaralan at bumuo ng mga patakarang makatutulong sa pagbuo ng positibong kapaligiran."],
-        correct: "Talakayin ang mga dahilan at epekto ng karahasan sa paaralan at bumuo ng mga patakarang makatutulong sa pagbuo ng positibong kapaligiran."
-    }
-];
+let questions = [];
 
 const questionEl = document.getElementById("question");
 const optionsContainer = document.getElementById("options-container");
@@ -262,7 +11,7 @@ const _audioProbe = document.createElement("audio");
 const _audioExt = _audioProbe && _audioProbe.canPlayType && _audioProbe.canPlayType("audio/wav") ? "wav" : "mp3";
 const correctAudio = new Audio("../assets/sounds/correct." + _audioExt);
 const incorrectAudio = new Audio("../assets/sounds/incorrect." + _audioExt);
-const APP_VERSION = "1.0.0";
+const APP_VERSION = "1.0.5";
 const versionEl = document.getElementById("app-version");
 if (versionEl) versionEl.textContent = APP_VERSION;
 const footerEl = document.querySelector(".app-footer");
@@ -286,6 +35,7 @@ let confirmEl = null;
 let feedbackEl = null;
 let nextBtn = null;
 const SCORE_KEY = "g8_scores";
+const ADDED_STUDENTS_KEY = "added_students_g8";
 let optionButtons = [];
 let nameInputEl = null;
 let startBtnEl = null;
@@ -301,6 +51,22 @@ function clearTransient() {
     nextBtn = null;
 }
 
+/**
+ * Normalizes a name string for reliable comparison.
+ * - Trims leading/trailing whitespace.
+ * - Replaces multiple internal spaces/tabs with a single space.
+ * - Converts to lowercase.
+ */
+function normalizeName(name) {
+    if (!name) return "";
+    return name.trim()
+        .toLowerCase()
+        .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // Remove accents/diacritics
+        .replace(/[\u200B-\u200D\uFEFF]/g, "") // Remove hidden zero-width chars/BOM
+        .replace(/[^a-z0-9\s]/g, "") // Remove any remaining special symbols/punctuation
+        .replace(/\s+/g, " "); // Normalize internal whitespace to single space
+}
+
 function showNameForm() {
     questionEl.textContent = "Enter your name to start the 4th Quarter Examination";
     optionsContainer.innerHTML = "";
@@ -311,12 +77,33 @@ function showNameForm() {
     const startBtn = document.createElement("button");
     startBtn.textContent = "Start";
     startBtn.style.marginTop = "10px";
+    
+    const enyeHint = document.createElement("small");
+    enyeHint.innerHTML = "Tip: Press <b>Alt + N</b> for ñ or <b>Alt + Shift + N</b> for Ñ";
+    enyeHint.style.display = "block";
+    enyeHint.style.marginTop = "8px";
+    enyeHint.style.color = "#666";
+
     optionsContainer.appendChild(input);
     optionsContainer.appendChild(startBtn);
+    optionsContainer.appendChild(enyeHint);
+
     if (footerEl) footerEl.style.display = "block";
     nameInputEl = input;
     startBtnEl = startBtn;
+
     input.addEventListener("keydown", (e) => {
+        // Alt + N shortcut for ñ/Ñ
+        if (e.altKey && (e.key === "n" || e.key === "N")) {
+            e.preventDefault();
+            const char = e.shiftKey ? "Ñ" : "ñ";
+            const start = input.selectionStart;
+            const end = input.selectionEnd;
+            const text = input.value;
+            input.value = text.substring(0, start) + char + text.substring(end);
+            input.selectionStart = input.selectionEnd = start + 1;
+            return;
+        }
         if (e.key === "Enter") {
             startBtn.click();
         }
@@ -328,18 +115,130 @@ function showNameForm() {
             input.focus();
             return;
         }
-        studentName = val;
-        if (nameBadge) {
-            nameBadge.textContent = studentName;
-            nameBadge.style.display = "inline-block";
-        }
-        score = 0;
-        current = 0;
-        nameInputEl = null;
-        startBtnEl = null;
+
         showLoader();
-        await loadExternalQuestions();
-        renderQuestion();
+        try {
+            console.log("Checking student list...");
+            
+            let text = "";
+            // Priority 1: Global variable from students-list.js (Serverless fallback)
+            if (window.STUDENTS_LIST_DATA) {
+                console.log("Using local script data for student list.");
+                text = window.STUDENTS_LIST_DATA;
+            } else {
+                // Priority 2: Fetch from server
+                try {
+                    const listUrl = "students-list.txt?nocache=" + Date.now();
+                    const resp = await fetch(listUrl);
+                    if (resp.ok) {
+                        text = await resp.text();
+                    }
+                } catch (fetchErr) {
+                    console.warn("Fetch failed, and no local script data found.");
+                    throw new Error("Failed to fetch student list and no local data found. If running locally, please use start_server.bat or check students-list.js.");
+                }
+            }
+
+            if (!text) {
+                throw new Error("Student list data is empty or could not be loaded.");
+            }
+            
+            // Remove BOM if present
+            text = text.replace(/^\uFEFF/, "");
+
+            // Parse and normalize names from the file
+            const authorizedStudents = text.split(/\r?\n/)
+                .map(s => s.trim())
+                .filter(s => s.length > 0);
+            
+            console.log(`Loaded ${authorizedStudents.length} names from list.`);
+            
+            // Also check newly added students from admin panel (localStorage)
+            let newlyAdded = [];
+            try {
+                const raw = localStorage.getItem(ADDED_STUDENTS_KEY);
+                if (raw && raw !== "undefined") {
+                    newlyAdded = JSON.parse(raw);
+                }
+                if (!Array.isArray(newlyAdded)) newlyAdded = [];
+            } catch (jsonErr) {
+                console.warn("localStorage students data corrupted, resetting to empty list.");
+                newlyAdded = [];
+            }
+            
+            const normalizedInput = normalizeName(val);
+            let officialName = "";
+            console.log(`Searching for input: "${val}" -> Normalized: "${normalizedInput}"`);
+
+            // Search in authorized list
+            for (let name of authorizedStudents) {
+                const norm = normalizeName(name);
+                if (norm === normalizedInput) {
+                    officialName = name;
+                    break;
+                }
+            }
+
+            // Search in newly added list if not found yet
+            if (!officialName) {
+                console.log(`Checking ${newlyAdded.length} extra students...`);
+                for (let name of newlyAdded) {
+                    const norm = normalizeName(name);
+                    if (norm === normalizedInput) {
+                        officialName = name;
+                        break;
+                    }
+                }
+            }
+
+            if (!officialName) {
+                console.warn(`Student not found in list: "${normalizedInput}"`);
+                alert("Unauthorized: Your name is not in the student list for this grade. Please check your spelling or contact your teacher.");
+                hideLoader();
+                input.style.borderColor = "#e74c3c";
+                input.focus();
+                return;
+            }
+
+            console.log(`Student found: "${officialName}"`);
+
+            studentName = officialName; // Use the official capitalization from the list
+            if (nameBadge) {
+                nameBadge.textContent = studentName;
+                nameBadge.style.display = "inline-block";
+            }
+
+            // Display student photo next to logo
+            const logo = document.querySelector('.school-logo');
+            if (logo) {
+                let photo = document.getElementById('student-photo');
+                if (!photo) {
+                    photo = document.createElement('img');
+                    photo.id = 'student-photo';
+                    photo.className = 'student-photo';
+                    photo.onerror = () => { photo.style.display = 'none'; }; // Hide if not found
+                    logo.parentNode.insertBefore(photo, logo.nextSibling);
+                }
+                photo.src = `../assets/students-photo/${encodeURIComponent(studentName)}.jpg`;
+                photo.style.display = 'inline-block';
+            }
+
+            score = 0;
+            current = 0;
+            nameInputEl = null;
+            startBtnEl = null;
+            console.log("Auth success. Loading questions...");
+            await loadExternalQuestions();
+            console.log("Questions loaded count:", questions.length);
+            renderQuestion();
+        } catch (e) {
+            console.error("Auth check failed:", e);
+            let userMsg = "Error verifying student list: " + e.message;
+            if (e.message.includes("fetch")) {
+                userMsg += "\n\nTip: This usually happens if the server is down or if you are opening the file directly from your computer (Double-clicking the .html file). Please ensure you are running this through a local server or web hosting.";
+            }
+            alert(userMsg);
+        }
         hideLoader();
     });
 }
@@ -349,11 +248,54 @@ function renderQuestion() {
     answered = false;
     selectedAnswer = null;
     if (footerEl) footerEl.style.display = "none";
+
+    if (questions.length === 0) {
+        questionEl.textContent = "Error: No questions found. Please contact your teacher.";
+        optionsContainer.innerHTML = "";
+        return;
+    }
+
     if (current >= questions.length) {
-        questionEl.textContent = (studentName ? (studentName + ", ") : "") + "Tapos na ang pagsagot mo sa 4th Quarter Examination. Ang iyong Kabuuang iskor ay: " + score + " / " + questions.length;
+        let scoreColor = "#e74c3c"; // Default Red (10 and below)
+        if (score > 40) scoreColor = "#27ae60"; // Green (41-50)
+        else if (score > 30) scoreColor = "#2980b9"; // Blue (31-40)
+        else if (score > 20) scoreColor = "#f1c40f"; // Dark Yellow/Gold (21-30)
+        else if (score > 10) scoreColor = "#e67e22"; // Orange (11-20)
+
+        questionEl.innerHTML = (studentName ? (studentName + ", ") : "") + 
+            "Tapos na ang pagsagot mo sa 4th Quarter Examination.<br>" +
+            "<span style='font-size: 2.5rem; color: " + scoreColor + "; display: block; margin-top: 15px; font-weight: 800;'>" + 
+            score + " / " + questions.length + "</span>";
+            
         optionsContainer.innerHTML = "";
         scoreDisplay.textContent = "Score: " + score;
         if (footerEl) footerEl.style.display = "block";
+        
+        // Add Repeat Exam instruction message
+        const instructionMsg = document.createElement("p");
+        instructionMsg.innerHTML = "Would you like to retake the Examination?<br><small>Click the 'Back to Menu' button for another student to take the exam.</small>";
+        instructionMsg.style.marginTop = "20px";
+        instructionMsg.style.color = "#555";
+        instructionMsg.style.fontWeight = "600";
+        optionsContainer.appendChild(instructionMsg);
+
+        // Add Repeat Exam button
+        const repeatBtn = document.createElement("button");
+        repeatBtn.textContent = "Repeat Exam";
+        repeatBtn.className = "option-btn";
+        repeatBtn.style.marginTop = "20px";
+        repeatBtn.style.background = "linear-gradient(135deg, #6dd5ed, #2193b0)";
+        repeatBtn.style.color = "white";
+        repeatBtn.style.border = "none";
+        repeatBtn.onclick = () => {
+            if (confirm("Are you sure you want to repeat the exam? Your current score has already been recorded.")) {
+                score = 0;
+                current = 0;
+                renderQuestion();
+            }
+        };
+        optionsContainer.appendChild(repeatBtn);
+
         recordAndOfferDownload();
         return;
     }
@@ -504,7 +446,11 @@ if (backBtn) {
     backBtn.addEventListener("click", (e) => {
         e.preventDefault();
         const href = backBtn.getAttribute("href");
-        const ok = window.confirm("Are you sure you want to leave this exam? Your current progress will not be saved.");
+        let msg = "Are you sure you want to leave this exam? Your current progress will not be saved.";
+        if (current >= questions.length && questions.length > 0) {
+            msg = "Are you sure you want to leave this exam? Your current progress is saved.";
+        }
+        const ok = window.confirm(msg);
         if (ok && href) {
             window.location.href = href;
         }
@@ -545,28 +491,48 @@ applyBackground();
 updateThemeToggleLabel();
 async function loadExternalQuestions() {
     try {
-        const res = await fetch("exam-questions.txt");
-        if (res && res.ok) {
-            const txt = await res.text();
+        let txt = "";
+        // Priority 1: Local JS data
+        if (window.EXAM_QUESTIONS_DATA) {
+            console.log("Using local script data for questions.");
+            txt = window.EXAM_QUESTIONS_DATA;
+        } else {
+            // Priority 2: Fetch
+            const res = await fetch("exam-questions.txt?nocache=" + Date.now());
+            if (res && res.ok) {
+                txt = await res.text();
+            }
+        }
+
+        if (txt) {
             const parsed = parseTxtQuestions(txt);
             if (parsed && parsed.length) {
                 questions = parsed;
                 try {
-                    let keyTxt = null;
-                    let keyRes = await fetch("answer-key.txt");
-                    if (keyRes && keyRes.ok) {
-                        keyTxt = await keyRes.text();
+                    let keyTxt = "";
+                    // Priority 1: Local JS key
+                    if (window.ANSWER_KEY_DATA) {
+                        console.log("Using local script data for answer key.");
+                        keyTxt = window.ANSWER_KEY_DATA;
                     } else {
-                        keyRes = await fetch("exam-questions-answerkey.txt");
+                        // Priority 2: Fetch key
+                        let keyRes = await fetch("answer-key.txt?nocache=" + Date.now());
                         if (keyRes && keyRes.ok) {
                             keyTxt = await keyRes.text();
+                        } else {
+                            keyRes = await fetch("exam-questions-answerkey.txt?nocache=" + Date.now());
+                            if (keyRes && keyRes.ok) {
+                                keyTxt = await keyRes.text();
+                            }
                         }
                     }
                     if (keyTxt) applyAnswerKey(questions, keyTxt);
                 } catch (_) {}
             }
         }
-    } catch (e) {}
+    } catch (e) {
+        console.error("Error in loadExternalQuestions:", e);
+    }
 }
 function parseTxtQuestions(text) {
     // Remove BOM if present
@@ -578,8 +544,10 @@ function parseTxtQuestions(text) {
     let q = null;
     let opts = [];
     const flush = () => {
-        if (q && opts.length) {
-            qs.push({ q: q.trim(), a: opts.slice(), correct: null });
+        // Filter out null/undefined to get a clean list of options
+        const cleanOpts = opts.filter(o => o !== null && o !== undefined);
+        if (q && cleanOpts.length > 0) {
+            qs.push({ q: q.trim(), a: cleanOpts, correct: null });
         }
         q = null;
         opts = [];
@@ -621,7 +589,10 @@ function parseTxtQuestions(text) {
                 let start = currentLabelIndices[i].pos + currentLabelIndices[i].label.length;
                 let end = (i + 1 < currentLabelIndices.length) ? currentLabelIndices[i + 1].pos : line.length;
                 let optText = line.substring(start, end).trim();
-                if (optText) opts.push(optText);
+                if (optText) {
+                    // Place the option at the correct index (A=0, B=1, C=2, D=3)
+                    opts[currentLabelIndices[i].idx] = optText;
+                }
             }
             continue;
         }
@@ -714,13 +685,5 @@ function exportToExcel() {
 
 function recordAndOfferDownload() {
     addScoreRecord(studentName, score, questions.length);
-    
-    const dl = document.createElement("button");
-    dl.textContent = "Download Summary Results (Excel)";
-    dl.style.marginTop = "12px";
-    dl.className = "btn-download";
-    dl.addEventListener("click", () => {
-        exportToExcel();
-    });
-    optionsContainer.appendChild(dl);
+    // Student download button removed as per requirements.
 }

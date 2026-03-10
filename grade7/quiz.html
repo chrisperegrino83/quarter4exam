@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Grade 7 Assessment</title>
-    <link rel="stylesheet" href="../style.css"> <!-- Links to the main CSS file -->
+    <link rel="stylesheet" href="../style.css?v=1.0.5"> <!-- Links to the main CSS file -->
 </head>
 <body>
     <div id="top-right-ui">
@@ -24,7 +24,12 @@
     </div>
     <footer class="app-footer">© 2026 Sir Chris | Version: <span id="app-version"></span></footer>
 
+    <!-- Local Data Files (Serverless Support) -->
+    <script src="students-list.js?v=1.0.5"></script>
+    <script src="exam-questions.js?v=1.0.5"></script>
+    <script src="answer-key.js?v=1.0.5"></script>
+
     <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
-    <script src="script.js"></script>
+    <script src="script.js?v=1.0.5"></script>
 </body>
 </html>
