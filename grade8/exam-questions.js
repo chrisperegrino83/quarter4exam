@@ -93,7 +93,7 @@ C. Wala po. Hahayaan ko lang ang mga kaklase.
 D. Wala po. Magpapanggap ako na walang nakita.
 
 20. Anong angkop na hakbang ang iyong isasagawa upang maiwasan ang pambubulas na  iyong masaksihan? 
-A. Lapitan ang biktima ng pambubulas at aluin siya.
+A. Lapitan ang biktima ng pambubulas at paluin siya.
 B. Isawalang-bahala ang nakita upang hindi na makialam.
 C. Ipaalam agad sa inyong guro o tagapayo upang maagapan ang sitwasyon.
 D. Tawagin ang pansin ng mga nambubulas at ipakita ang pagtutol sa kanilang ginagawa.
