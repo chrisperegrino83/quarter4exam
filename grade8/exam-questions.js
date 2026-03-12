@@ -22,12 +22,8 @@ B. Pasalitang Pambubulas		D. Relasyonal na Pambubulas
 A. Pagmamahal sa kalikasan			C. Pagmamahal sa sarili at sa iba
 B. Pagmamahal sa materyal na bagay	D. Pagmamahal sa tagumpay
 
-For questions 8-10...
-
-Ang unang mga taon sa hayskul ay isang labis na pahirap sa akin. Pinatindi ito ng mga taong walang ibang pinagkatuwaan kung di ang pambubulas sa kapwa. May mag-aaral na natuwang sulatan ako ng mga masamang salita, tinukso-tukso, sinundan-sundan pag-uwi at niloko sa telepono. Isinumbong ko na siya sa aming guidance counselor at ipinaalam ko rin sa aming principal ngunit wala pa ring nagbago. 
-Isang araw sa aming klase, minura niya ako, at ininsulto na sobrang masakit na. Hindi ako nakatiis. Sinampal at minura ko na siya, kaya binitawan niya ako. Mula noon, iniwasan niya na ako at di na sinaktan. Ayaw ko ng karahasan, kaya di ko lubos maisip bakit ako gumanti. Dahil dito, kinamuhian ko ang sarili ko. Sana pinalampas ko na lang ang panggugulo niya. Sa panahon ng pag-aaral kasi, naghahanap ang isang kabataang tulad ko sa aking sarili, na kahit ganoon kaliit na bagay ay may epekto sa aking buhay hanggang pagtanda.
-
-8. Anong uri ng pambubulas ang naranasan ni Rebecca?
+8. Ang unang mga taon sa hayskul ay isang labis na pahirap sa akin. Pinatindi ito ng mga taong walang ibang pinagkatuwaan kung di ang pambubulas sa kapwa. May mag-aaral na natuwang sulatan ako ng mga masamang salita, tinukso-tukso, sinundan-sundan pag-uwi at niloko sa telepono. Isinumbong ko na siya sa aming guidance counselor at ipinaalam ko rin sa aming principal ngunit wala pa ring nagbago. 
+Isang araw sa aming klase, minura niya ako, at ininsulto na sobrang masakit na. Hindi ako nakatiis. Sinampal at minura ko na siya, kaya binitawan niya ako. Mula noon, iniwasan niya na ako at di na sinaktan. Ayaw ko ng karahasan, kaya di ko lubos maisip bakit ako gumanti. Dahil dito, kinamuhian ko ang sarili ko. Sana pinalampas ko na lang ang panggugulo niya. Sa panahon ng pag-aaral kasi, naghahanap ang isang kabataang tulad ko sa aking sarili, na kahit ganoon kaliit na bagay ay may epekto sa aking buhay hanggang pagtanda. Anong uri ng pambubulas ang naranasan ni Rebecca?
 A. Cyber na Pambubulas 		C. Pisikal na Pambubulas
 B. Pasalitang Pambubulas		D. Relasyonal na Pambubulas
 
@@ -37,7 +33,7 @@ B. kinamuhian ang sarili 	D. napilitang gumanti
 
 10. Ano ang maling hakbang na ginawa ni Rebecca upang malampasan ang karanasan niya sa paaralan?
 A. Pagsampal at pagmura sa kaklase      	C. Pagsasabi sa principal   
-B. Pagsumbong sa guidance counselor	D. Hindi nabanggit.
+B. Pagsumbong sa guidance counselor			D. Hindi nabanggit.
 
 11. “Ang sekswalidad ay behikulo upang maging ganap na tao – lalaki o babae -na ninanais mong maging”. Alin sa mga sumusunod ang tumutugma sa pahayag na ito.
 A. Maaari mong piliin ang iyong sekswalidad
@@ -46,7 +42,6 @@ C. Ang sekswalidad ay daan upang maging ganap na tao
 D. Mahalaga ang iyong pagiging lalaki o babae sa pipiliin mong kurso
 
 12. Sa kasalukuyan ang suliranin ng mga LGBTQ+ ay karaniwang nagaganap sa mga paaralan. Isang grupo ng mga LGBTQ+ ang nagtipon-tipon sa harap ng silid-aklatan. Isa sa kanila ay nagbabahagi ng nararanasang diskriminasyon at pananakit dahil sa kanyang sekswal na oryentasyon. Nalulungkot siya sapagkat bumaba ang kanyang mga marka dahil dito. Ang sitwasyon ay nagpapakita ng __________.
-
 A.	kontemporaryong isyu na may kinalalaman sa sekswalidad
 B.	normal na pangyayari sa kasalukuyan sa loob ng paaralan
 C.	katanggap-tanggap na sitwasyon sa pagitan ng mga Kabataan
@@ -72,17 +67,14 @@ A. gang 			C. pambubulas o bullying
 B. pagnanakaw 		D. sexual harassment o panliligalig sa sekswal
 
 17. Basahin ang mga pahayag sa ibaba. Alin ang hindi nagpapakita ng tunay na pagmamahal sa kapwa?
-I. Paggalang sa kaniyang dignidad bilang tao
-II. Pagbibigay sa kaniya sa lahat ng nais niya sa buhay 
-III. Pagmamahal sa kaniya na may kaakibat na katarungan
-IV. Pagtanggap sa kaniya anuman ang estado niya sa buhay
-
-A.	I		B. II			C. III			D. IV
+A. Paggalang sa kaniyang dignidad bilang tao
+B. Pagbibigay sa kaniya sa lahat ng nais niya sa buhay 
+C. Pagmamahal sa kaniya na may kaakibat na katarungan
+D. Pagtanggap sa kaniya anuman ang estado niya sa buhay
 
 18. Ano ang maaaring epekto ng kawalan ng tagapayo sa sitwasyon ng pambubulas?
 A. Magiging maayos ang takbo ng klase
 B. Masisiguro ang kaligtasan ng bawat mag-aaral
-
 C. Madali itong maaayos ng mga mag-aaral mismo
 D. Mas malayang makakagalaw ang mga nambubulas
 
@@ -98,14 +90,11 @@ B. Isawalang-bahala ang nakita upang hindi na makialam.
 C. Ipaalam agad sa inyong guro o tagapayo upang maagapan ang sitwasyon.
 D. Tawagin ang pansin ng mga nambubulas at ipakita ang pagtutol sa kanilang ginagawa.
 
-
 21. Si Faye ay may mga kaibigan na may iba't ibang oryentasyong sekswal. Ang mga ito ay nalilito sa kanilang mga gusto at nararamdaman.  Isang araw, tinanong siya ng isa sa kanyang mga kaibigan tungkol sa kahulugan ng sekswalidad. Ano ang pinakamainam na sagot na maaaring ibigay ni Faye upang mas maunawaan ng kanyang kaibigan ang sekswalidad?
 A. Ang sekswalidad ay tungkol lang sa mga relasyon ng lalaki at babae.
 B. Ang sekswalidad ay isang bagay na hindi na dapat pag-usapan dahil hindi ito malaswang pakinggan.
 C. Ang sekswalidad ay tanging tungkol lamang sa pagkakaroon ng asawa. Kaya hindi dapat ito itinatanong nga mga tinedyer katulad nila.
 D. Ang sekswalidad ay isang malawak na konsepto na tumutukoy sa ating mga pagnanasa, oryentasyon, at pagkakakilanlan na maaaring mag-iba mula sa bawat isa.
-
-
 
 22. Isang araw, nakarinig si Maria ng balita tungkol sa mga hakbang na isinasagawa ng ilang paaralan upang itaguyod ang edukasyon tungkol sa sekswalidad at kasarian. Ano ang pinakamainam na reaksyon ni Maria upang maging aktibong bahagi sa pagtanggap at pagpapalaganap ng tamang impormasyon tungkol sa isyung ito?
 A. Itigil ang mga edukasyon at proyekto tungkol sa sekswalidad dahil hindi ito mahalaga.
@@ -135,10 +124,7 @@ B. Iwasan ang pakikisalamuha sa ibang tao upang maprotektahan ang sarili.
 C. Ibigay ang lahat ng oras at lakas para sa iba, kahit mawalan ng panahon para sa sarili.
 D. Pagyamanin ang pagmamahal sa sarili upang mas maipahayag ang pagmamahal sa kapuwa.
 
-For questions 27-30...
-Sa oras ng recess, nakita ni Liza na binubulas ng grupo ng mga lalaki ang kaklase niyang si Mark sa sulok ng quadrangle. Pinagtatawanan nila si Mark dahil sa kanyang suot na lumang sapatos, at sinimulan pa siyang itulak. Wala ni isang guro ang nakakita sa nangyayari, at karamihan ng mga estudyante ay tahimik na nanonood lamang. Si Liza, bagama’t kinakabahan, ay nag-isip kung ano ang kanyang maaaring gawin upang matulungan si Mark at maawat ang pambubulas.
-
-27. Batay sa sitwasyon, ano ang maaaring mangyari kung walang sinuman ang kumilos upang awatin ang pambubulas kay Mark?
+27. Sa oras ng recess, nakita ni Liza na binubulas ng grupo ng mga lalaki ang kaklase niyang si Mark sa sulok ng quadrangle. Pinagtatawanan nila si Mark dahil sa kanyang suot na lumang sapatos, at sinimulan pa siyang itulak. Wala ni isang guro ang nakakita sa nangyayari, at karamihan ng mga estudyante ay tahimik na nanonood lamang. Si Liza, bagama’t kinakabahan, ay nag-isip kung ano ang kanyang maaaring gawin upang matulungan si Mark at maawat ang pambubulas. Batay sa sitwasyon, ano ang maaaring mangyari kung walang sinuman ang kumilos upang awatin ang pambubulas kay Mark?
 A. Maaaring huminto ang mga nambubulas nang kusa.
 B. Magiging masaya ang mga nanonood sa nangyayari.
 C. Magpapatuloy ang pambubulas at maaaring mas lumala ang sitwasyon.
@@ -228,8 +214,6 @@ B. Iwasan ang pag-isip tungkol sa relasyon at mas pagtuunan ng pansin ang mga ma
 C. Mag-pokus lamang sa pisikal na aspeto ng mga relasyon at huwag alalahanin ang emosyonal at mental na kalusugan.
 D. Maglaan ng oras upang mas mapalalim ang pag-unawa sa sarili at sa kahalagahan ng respeto at pag-aalaga sa iba bago pumasok sa isang relasyon.
 
-Para sa bilang 42 – 43, basahin ang pahayag at sagutin ang mga tanong. 
-
 42. "Ang pagpapalaganap ng kamalayan ay isang mahalagang hakbang upang matugunan ang mga uri, sanhi, at epekto ng karahasan sa paaralan. Ang pagpapaliwanag ng epekto ng karahasan, kabilang na ang pambubulas at cyberbullying, ay makatutulong upang mapigilan ang mga ito. Mahalaga rin ang pagtutok sa mga sanhi ng karahasan tulad ng mababang pagpapahalaga sa sarili, pagkakaroon ng galit, at kakulangan ng maayos na komunikasyon. Sa pamamagitan ng edukasyon, maaari nating maiparating sa mga mag-aaral ang epekto ng kanilang mga aksyon at kung paano nila maiiwasan ang pag-uugali ng karahasan."Anong mga hakbang ang maaaring gawin upang matugunan ang mga uri, sanhi, at epekto ng karahasan sa paaralan tulad ng pambubulas at cyberbullying?
 A. Pagtanggap at pagpapalakas ng mga sanhi ng karahasan, tulad ng poot o inggit, sa halip na ito ay hadlangan.
 B. Pagpapataw ng mabigat na parusa sa mga nagiging biktima ng karahasan upang mapagtibay ang disiplina sa paaralan.
@@ -242,10 +226,7 @@ B. Ang pagmamahal sa sarili ay magdudulot ng labis na pansariling kapakinabangan
 C. Ang pagmamahal sa sarili at kapwa ay magpapalakas sa mag-aaral na magsalita laban sa karahasan at magbigay ng suporta sa mga biktima.
 D. Ang pagpapahalaga sa sarili ay hindi mahalaga sa pag-iwas sa karahasan, basta’t matutunan lang kung paano makaligtas sa mga isyu.
 
-For questions 44-45...
-Sa isang hapon ng recess, napansin ni Miguel na may mga kaklase siyang nambubulas ng isang batang bagong transfer sa kanilang paaralan. Pinagtatawanan nila ito at tinutukso dahil sa kanyang hitsura at hindi pa gaanong kakilala. Hindi nakatiis si Miguel at tinawagan ang pansin ng mga magulang ng mga nambubulas upang maipaliwanag sa kanila ang masamang epekto ng pambubulas. Kasunod nito, nagpunta siya sa kanilang guro upang ipagbigay – alam ang insidente. Pinuri siya ng guro at itinuro ang kahalagahan ng pagiging handa sa pagtulong sa mga biktima ng karahasan.
-
-44. Paano nakatutulong ang pagiging handa ni Miguel na mag-report at makialam sa sitwasyon upang maiwasan ang karahasan sa paaralan?
+44. Sa isang hapon ng recess, napansin ni Miguel na may mga kaklase siyang nambubulas ng isang batang bagong transfer sa kanilang paaralan. Pinagtatawanan nila ito at tinutukso dahil sa kanyang hitsura at hindi pa gaanong kakilala. Hindi nakatiis si Miguel at tinawagan ang pansin ng mga magulang ng mga nambubulas upang maipaliwanag sa kanila ang masamang epekto ng pambubulas. Kasunod nito, nagpunta siya sa kanilang guro upang ipagbigay – alam ang insidente. Pinuri siya ng guro at itinuro ang kahalagahan ng pagiging handa sa pagtulong sa mga biktima ng karahasan. Paano nakatutulong ang pagiging handa ni Miguel na mag-report at makialam sa sitwasyon upang maiwasan ang karahasan sa paaralan?
 A. Pinapalala ang sitwasyon at nagpapaigting ng galit sa mga mag-aaral na kasangkot.
 B. Nagiging dahilan ng pagiging takot ng iba at hindi na makikialam sa mga isyu sa paaralan.
 C. Nagiging sanhi ng higit pang alitan at hindi pagkakaintindihan sa pagitan ng mga mag-aaral.
