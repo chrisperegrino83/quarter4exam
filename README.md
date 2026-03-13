@@ -8,7 +8,7 @@ Welcome to the 4th Quarter Assessment Portal. This is a web-based platform desig
 2. **Enter Your Full Name**: Type your complete name in the input box to begin.
 3. **Answer the Questions**: Each grade has a 50-item question bank.
 4. **Complete the Quiz**: After answering all questions, your final score will be displayed.
-5. **Download Your Results**: Click the **"Download Summary Results (Excel)"** button to save your score. **You must send this file to your teacher to record your grade.**
+5. **View Your Results**:
 
 ## ✨ Key Features
 
