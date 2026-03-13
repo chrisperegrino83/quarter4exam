@@ -15,6 +15,7 @@ Welcome to the 4th Quarter Assessment Portal. This is a web-based platform desig
 - **Automated Scoring**: Scores are calculated instantly upon completion.
 - **Dynamic Backgrounds**: Rotating background images for a better visual experience.
 - **Theme Toggling**: Students can switch between Dark and Light modes.
+- **Keyboard Shortcuts**: Use `Enter` to confirm answers and `Esc` to cancel.
 - **Excel Summaries**: Results are compiled into a single Excel file with separate sheets for each grade level.
 - **Offline Compatibility**: Works without a local server, ensuring stability during classroom hours.
 

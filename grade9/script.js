@@ -2,6 +2,7 @@ let questions = [];
 
 const questionEl = document.getElementById("question");
 const optionsContainer = document.getElementById("options-container");
+const questionWrapper = document.getElementById("question-wrapper");
 const scoreDisplay = document.getElementById("score-display");
 const backBtn = document.querySelector(".btn-home");
 const nameBadge = document.getElementById("student-name-badge");
@@ -11,7 +12,7 @@ const _audioProbe = document.createElement("audio");
 const _audioExt = _audioProbe && _audioProbe.canPlayType && _audioProbe.canPlayType("audio/wav") ? "wav" : "mp3";
 const correctAudio = new Audio("../assets/sounds/correct." + _audioExt);
 const incorrectAudio = new Audio("../assets/sounds/incorrect." + _audioExt);
-const APP_VERSION = "1.0.5";
+const APP_VERSION = "1.1.1";
 const versionEl = document.getElementById("app-version");
 if (versionEl) versionEl.textContent = APP_VERSION;
 const footerEl = document.querySelector(".app-footer");
@@ -268,6 +269,7 @@ function renderQuestion() {
             score + " / " + questions.length + "</span>";
             
         optionsContainer.innerHTML = "";
+        scoreDisplay.style.display = "block";
         scoreDisplay.textContent = "Score: " + score;
         if (footerEl) footerEl.style.display = "block";
         
@@ -311,6 +313,7 @@ function renderQuestion() {
         optionsContainer.appendChild(btn);
         optionButtons.push(btn);
     });
+    scoreDisplay.style.display = "block";
     scoreDisplay.textContent = "Score: " + score;
 }
 
@@ -324,41 +327,75 @@ function onOptionClick(opt, btn) {
 }
 
 function showConfirm() {
-    if (confirmEl && confirmEl.parentNode) confirmEl.parentNode.removeChild(confirmEl);
+    if (confirmEl) confirmEl.remove(); // Remove old modal if any
+
     confirmEl = document.createElement("div");
-    confirmEl.className = "confirm-box";
-    const msg = document.createElement("p");
-    msg.textContent = "Are you sure with your answer?";
-    const yesBtn = document.createElement("button");
-    yesBtn.textContent = "YES";
-    yesBtn.className = "confirm-btn yes";
-    const noBtn = document.createElement("button");
-    noBtn.textContent = "NO";
-    noBtn.className = "confirm-btn no";
-    confirmEl.appendChild(msg);
-    confirmEl.appendChild(yesBtn);
-    confirmEl.appendChild(noBtn);
-    optionsContainer.appendChild(confirmEl);
-    confirmYesBtnEl = yesBtn;
-    confirmNoBtnEl = noBtn;
-    yesBtn.addEventListener("click", () => confirmYes(yesBtn));
-    noBtn.addEventListener("click", () => confirmNo(noBtn));
+    confirmEl.className = "modal-overlay";
+    confirmEl.innerHTML = `
+        <div class="modal-content">
+            <p>Are you sure with your answer?</p>
+            <div class="modal-buttons">
+                <button class="confirm-btn yes">YES</button>
+                <button class="confirm-btn no">NO</button>
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(confirmEl);
+
+    // Add a slight delay to allow the element to be in the DOM before adding the visible class
+    setTimeout(() => {
+        confirmEl.classList.add("visible");
+    }, 10);
+
+    confirmYesBtnEl = confirmEl.querySelector(".yes");
+    confirmNoBtnEl = confirmEl.querySelector(".no");
+
+    confirmYesBtnEl.addEventListener("click", () => confirmYes(confirmYesBtnEl));
+    confirmNoBtnEl.addEventListener("click", () => confirmNo(confirmNoBtnEl));
+
+    // Add keyboard listeners
+    document.addEventListener("keydown", handleConfirmKeydown);
+}
+
+function handleConfirmKeydown(e) {
+    if (e.key === "Enter") {
+        if (confirmYesBtnEl) {
+            confirmYesBtnEl.click();
+        }
+    } else if (e.key === "Escape") {
+        if (confirmNoBtnEl) {
+            confirmNoBtnEl.click();
+        }
+    }
 }
 
 function confirmNo(btn) {
     if (btn) btn.classList.add("confirm-selected");
-    if (confirmEl && confirmEl.parentNode) confirmEl.parentNode.removeChild(confirmEl);
-    confirmEl = null;
+    if (confirmEl) {
+        confirmEl.classList.remove("visible");
+        // Wait for the transition to finish before removing the element
+        setTimeout(() => {
+            if (confirmEl) confirmEl.remove();
+            confirmEl = null;
+        }, 300);
+    }
     confirmYesBtnEl = null;
     confirmNoBtnEl = null;
+    document.removeEventListener("keydown", handleConfirmKeydown);
 }
 
 function confirmYes(btn) {
     if (answered) return;
     answered = true;
     if (btn) btn.classList.add("confirm-selected");
-    if (confirmEl && confirmEl.parentNode) confirmEl.parentNode.removeChild(confirmEl);
-    confirmEl = null;
+    if (confirmEl) {
+        confirmEl.classList.remove("visible");
+        setTimeout(() => {
+            if (confirmEl) confirmEl.remove();
+            confirmEl = null;
+        }, 300);
+    }
     confirmYesBtnEl = null;
 
     const correct = questions[current].correct;
@@ -370,7 +407,14 @@ function confirmYes(btn) {
 
     if (hasKey) {
         isCorrect = selectedAnswer === correct;
-        if (isCorrect) score += 1;
+        if (isCorrect) {
+            score += 1;
+            scoreDisplay.textContent = "Score: " + score;
+            scoreDisplay.classList.add("score-pulse");
+            setTimeout(() => {
+                scoreDisplay.classList.remove("score-pulse");
+            }, 500);
+        }
         try {
             if (isCorrect) {
                 correctAudio.currentTime = 0;
@@ -394,15 +438,24 @@ function confirmYes(btn) {
     buttons.forEach(b => b.disabled = true);
     nextBtn = document.createElement("button");
     nextBtn.textContent = "Next Question";
-    nextBtn.style.marginTop = "10px";
+    nextBtn.className = "next-btn-pop";
     optionsContainer.appendChild(nextBtn);
     nextBtn.addEventListener("click", () => {
-        showLoader();
-        setTimeout(() => {
-            current += 1;
+        if (questionWrapper) {
+            questionWrapper.classList.add("fade-out");
+            setTimeout(() => {
+                current++;
+                renderQuestion();
+                questionWrapper.classList.remove("fade-out");
+                questionWrapper.classList.add("fade-in");
+                setTimeout(() => {
+                    questionWrapper.classList.remove("fade-in");
+                }, 400);
+            }, 400);
+        } else {
+            current++;
             renderQuestion();
-            hideLoader();
-        }, 150);
+        }
     });
 }
 

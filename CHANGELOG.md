@@ -2,6 +2,12 @@
 
 All notable changes to the **4th Quarter Assessment Portal** will be documented in this file.
 
+## [1.1.1] - 2026-03-12
+
+### Fixed
+- Standardized keyboard shortcuts across all grade levels, assigning `Enter` for "YES" and `Esc` for "NO" in the answer confirmation pop-up.
+- Refactored all grade-level scripts to remove redundant code and improve maintainability.
+
 ## [1.0.5] - 2026-03-10
 
 ### Fixed
