@@ -82,6 +82,7 @@ body {
 .g8 { background-color: #e91e63; } /* Pink */
 .g9 { background-color: #ff9800; } /* Orange */
 .g10 { background-color: #4caf50; } /* Green */
+.g8-tle { background-color: #009688; } /* Teal */
 .btn-home {
     background-color: #7f8c8d;
     position: fixed;
@@ -242,7 +243,7 @@ body {
 /* Quiz Specifics */
 .grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 15px;
     margin-top: 20px;
 }
@@ -324,21 +325,24 @@ body {
 }
 
 .feedback-correct {
-    color: green;
-    font-weight: 600;
-    margin-top: 10px;
+    color: #27ae60;
+    font-weight: 800;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .feedback-incorrect {
-    color: red;
-    font-weight: 600;
-    margin-top: 10px;
+    color: #e74c3c;
+    font-weight: 800;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .feedback-neutral {
-    color: #6b7280;
-    font-weight: 600;
-    margin-top: 10px;
+    color: #34495e;
+    font-weight: 800;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .name-input {

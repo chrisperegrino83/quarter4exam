@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard - Assessment Portal</title>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../style.css?v=1.1.1">
     <style>
         .dashboard-container {
             max-width: 800px;
@@ -151,10 +151,11 @@
                 <div class="form-group">
                     <label for="grade-level">Grade Level</label>
                     <select id="grade-level">
-                        <option value="7">Grade 7</option>
-                        <option value="8">Grade 8</option>
-                        <option value="9">Grade 9</option>
-                        <option value="10">Grade 10</option>
+                        <option value="7">Grade 7 - VE</option>
+                        <option value="8">Grade 8 - VE</option>
+                        <option value="8-tle">Grade 8 - TLE</option>
+                        <option value="9">Grade 9 - ESP</option>
+                        <option value="10">Grade 10 - ESP</option>
                     </select>
                 </div>
                 <button id="add-student-btn" class="btn g7">Add Student to List</button>
@@ -172,10 +173,11 @@
             <div class="reset-group">
                 <select id="reset-grade-select" class="reset-select">
                     <option value="all">All Grades</option>
-                    <option value="7">Grade 7</option>
-                    <option value="8">Grade 8</option>
-                    <option value="9">Grade 9</option>
-                    <option value="10">Grade 10</option>
+                    <option value="7">Grade 7 - VE</option>
+                    <option value="8">Grade 8 - VE</option>
+                    <option value="8-tle">Grade 8 - TLE</option>
+                    <option value="9">Grade 9 - ESP</option>
+                    <option value="10">Grade 10 - ESP</option>
                 </select>
                 <button id="reset-all-btn" class="btn reset-btn" style="margin-top: 0;">Reset Results Summary</button>
             </div>
@@ -187,10 +189,11 @@
             <div class="form-group">
                 <label for="manage-grade-level">Filter by Grade Level</label>
                 <select id="manage-grade-level" class="reset-select" onchange="loadStudentResults()">
-                    <option value="7">Grade 7</option>
-                    <option value="8">Grade 8</option>
-                    <option value="9">Grade 9</option>
-                    <option value="10">Grade 10</option>
+                    <option value="7">Grade 7 - VE</option>
+                    <option value="8">Grade 8 - VE</option>
+                    <option value="8-tle">Grade 8 - TLE</option>
+                    <option value="9">Grade 9 - ESP</option>
+                    <option value="10">Grade 10 - ESP</option>
                 </select>
             </div>
             <div class="results-table-container">
@@ -318,7 +321,7 @@
         });
 
         function updateStats() {
-            const grades = [7, 8, 9, 10];
+            const grades = [7, 8, '8-tle', 9, 10];
             statsGrid.innerHTML = '';
             
             grades.forEach(g => {
@@ -333,9 +336,17 @@
                 
                 const card = document.createElement('div');
                 card.className = 'stat-card';
+                const labels = {
+                    '7': 'Grade 7 - VE',
+                    '8': 'Grade 8 - VE',
+                    '8-tle': 'Grade 8 - TLE',
+                    '9': 'Grade 9 - ESP',
+                    '10': 'Grade 10 - ESP'
+                };
+                const label = labels[g] || 'Grade ' + g;
                 card.innerHTML = `
                     <h3>${count}</h3>
-                    <p>Grade ${g} Examinees</p>
+                    <p>${label} Examinees</p>
                 `;
                 statsGrid.appendChild(card);
             });
@@ -372,7 +383,15 @@
         }
 
         window.deleteResult = function(grade, index, name) {
-            const confirmMsg = `Are you sure you want to DELETE the result for ${name} in Grade ${grade}? This action cannot be undone.`;
+            const labels = {
+                '7': 'Grade 7 - VE',
+                '8': 'Grade 8 - VE',
+                '8-tle': 'Grade 8 - TLE',
+                '9': 'Grade 9 - ESP',
+                '10': 'Grade 10 - ESP'
+            };
+            const label = labels[grade] || 'Grade ' + grade;
+            const confirmMsg = `Are you sure you want to DELETE the result for ${name} in ${label}? This action cannot be undone.`;
             if (confirm(confirmMsg)) {
                 const key = "g" + grade + "_scores";
                 let records = JSON.parse(localStorage.getItem(key) || "[]");
@@ -385,7 +404,7 @@
 
         downloadBtn.addEventListener('click', () => {
             const wb = XLSX.utils.book_new();
-            const grades = [7, 8, 9, 10];
+            const grades = [7, 8, '8-tle', 9, 10];
             
             grades.forEach(g => {
                 const key = "g" + g + "_scores";
@@ -458,7 +477,7 @@
             
             if (confirm(confirmMsg)) {
                 if (target === "all") {
-                    const grades = [7, 8, 9, 10];
+                    const grades = [7, 8, '8-tle', 9, 10];
                     grades.forEach(g => {
                         localStorage.removeItem("g" + g + "_scores");
                     });

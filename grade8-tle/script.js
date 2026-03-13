@@ -35,8 +35,8 @@ let answered = false;
 let confirmEl = null;
 let feedbackEl = null;
 let nextBtn = null;
-const SCORE_KEY = "g9_scores";
-const ADDED_STUDENTS_KEY = "added_students_g9";
+const SCORE_KEY = "g8-tle_scores";
+const ADDED_STUDENTS_KEY = "added_students_g8-tle";
 let optionButtons = [];
 let nameInputEl = null;
 let startBtnEl = null;
@@ -69,7 +69,7 @@ function normalizeName(name) {
 }
 
 function showNameForm() {
-    questionEl.textContent = "Enter your name to start the 4th Quarter Grade 9 - ESP Examination";
+    questionEl.textContent = "Enter your name to start the 4th Quarter Grade 8 - TLE Examination";
     optionsContainer.innerHTML = "";
     const input = document.createElement("input");
     input.type = "text";
@@ -264,7 +264,7 @@ function renderQuestion() {
         else if (score > 10) scoreColor = "#e67e22"; // Orange (11-20)
 
         questionEl.innerHTML = (studentName ? (studentName + ", ") : "") + 
-            "Tapos na ang pagsagot mo sa 4th Quarter Grade 9 - ESP Examination.<br>" +
+            "Tapos na ang pagsagot mo sa 4th Quarter Grade 8 - TLE Examination.<br>" +
             "<span style='font-size: 2.5rem; color: " + scoreColor + "; display: block; margin-top: 15px; font-weight: 800;'>" + 
             score + " / " + questions.length + "</span>";
             
@@ -369,6 +369,8 @@ function handleConfirmKeydown(e) {
         }
     }
 }
+
+
 
 function confirmNo(btn) {
     if (btn) btn.classList.add("confirm-selected");

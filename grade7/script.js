@@ -12,7 +12,7 @@ const _audioProbe = document.createElement("audio");
 const _audioExt = _audioProbe && _audioProbe.canPlayType && _audioProbe.canPlayType("audio/wav") ? "wav" : "mp3";
 const correctAudio = new Audio("../assets/sounds/correct." + _audioExt);
 const incorrectAudio = new Audio("../assets/sounds/incorrect." + _audioExt);
-const APP_VERSION = "1.1.1";
+const APP_VERSION = "1.1.3";
 const versionEl = document.getElementById("app-version");
 if (versionEl) versionEl.textContent = APP_VERSION;
 const footerEl = document.querySelector(".app-footer");
@@ -69,7 +69,7 @@ function normalizeName(name) {
 }
 
 function showNameForm() {
-    questionEl.textContent = "Enter your name to start the 4th Quarter Examination";
+    questionEl.textContent = "Enter your name to start the 4th Quarter Grade 7 - VE Examination";
     optionsContainer.innerHTML = "";
     const input = document.createElement("input");
     input.type = "text";
@@ -264,7 +264,7 @@ function renderQuestion() {
         else if (score > 10) scoreColor = "#e67e22"; // Orange (11-20)
 
         questionEl.innerHTML = (studentName ? (studentName + ", ") : "") + 
-            "Tapos na ang pagsagot mo sa 4th Quarter Examination.<br>" +
+            "Tapos na ang pagsagot mo sa 4th Quarter Grade 7 - VE Examination.<br>" +
             "<span style='font-size: 2.5rem; color: " + scoreColor + "; display: block; margin-top: 15px; font-weight: 800;'>" + 
             score + " / " + questions.length + "</span>";
             
@@ -333,7 +333,7 @@ function showConfirm() {
     confirmEl.className = "modal-overlay";
     confirmEl.innerHTML = `
         <div class="modal-content">
-            <p>Are you sure with your answer?</p>
+            <p>Are you sure with your answer in <b>Question #${current + 1}</b>?</p>
             <div class="modal-buttons">
                 <button class="confirm-btn yes">YES</button>
                 <button class="confirm-btn no">NO</button>
@@ -404,21 +404,23 @@ function confirmYes(btn) {
     if (answered) return;
     answered = true;
     if (btn) btn.classList.add("confirm-selected");
+    
+    // Remove confirmation modal immediately to prevent it from interfering with feedback modal
     if (confirmEl) {
         confirmEl.classList.remove("visible");
+        const oldModal = confirmEl;
         setTimeout(() => {
-            if (confirmEl) confirmEl.remove();
-            confirmEl = null;
+            if (oldModal && oldModal.parentNode) oldModal.parentNode.removeChild(oldModal);
         }, 300);
+        confirmEl = null;
     }
     confirmYesBtnEl = null;
+    confirmNoBtnEl = null;
+    document.removeEventListener("keydown", handleConfirmKeydown);
 
     const correct = questions[current].correct;
     const hasKey = typeof correct === "string" && correct.length > 0;
     let isCorrect = false;
-
-    feedbackEl = document.createElement("div");
-    feedbackEl.className = "feedback-box";
 
     if (hasKey) {
         isCorrect = selectedAnswer === correct;
@@ -441,21 +443,46 @@ function confirmYes(btn) {
         } catch (e) {}
     }
 
+    // Create Feedback Pop-up
+    confirmEl = document.createElement("div");
+    confirmEl.className = "modal-overlay";
+    
+    let feedbackText = "";
+    let feedbackClass = "";
     if (!hasKey) {
-        feedbackEl.textContent = "Answer recorded.";
-        feedbackEl.className = "feedback-neutral";
+        feedbackText = "Answer recorded.";
+        feedbackClass = "feedback-neutral";
     } else {
-        feedbackEl.textContent = isCorrect ? "Your answer is correct." : "Your answer is incorrect.";
-        feedbackEl.className = isCorrect ? "feedback-correct" : "feedback-incorrect";
+        feedbackText = isCorrect ? "Your answer is correct." : "Your answer is incorrect.";
+        feedbackClass = isCorrect ? "feedback-correct" : "feedback-incorrect";
     }
-    optionsContainer.appendChild(feedbackEl);
-    const buttons = optionsContainer.querySelectorAll("button");
-    buttons.forEach(b => b.disabled = true);
-    nextBtn = document.createElement("button");
-    nextBtn.textContent = "Next Question";
-    nextBtn.className = "next-btn-pop";
-    optionsContainer.appendChild(nextBtn);
+
+    confirmEl.innerHTML = `
+        <div class="modal-content">
+            <div class="${feedbackClass}">${feedbackText}</div>
+            <div class="modal-buttons">
+                <button class="next-btn-pop">Next Question</button>
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(confirmEl);
+    setTimeout(() => {
+        confirmEl.classList.add("visible");
+    }, 10);
+
+    nextBtn = confirmEl.querySelector(".next-btn-pop");
     nextBtn.addEventListener("click", () => {
+        // Remove feedback modal
+        if (confirmEl) {
+            confirmEl.classList.remove("visible");
+            const feedbackModal = confirmEl;
+            setTimeout(() => {
+                if (feedbackModal && feedbackModal.parentNode) feedbackModal.parentNode.removeChild(feedbackModal);
+            }, 300);
+            confirmEl = null;
+        }
+
         if (questionWrapper) {
             questionWrapper.classList.add("fade-out");
             setTimeout(() => {
@@ -472,6 +499,9 @@ function confirmYes(btn) {
             renderQuestion();
         }
     });
+
+    const buttons = optionsContainer.querySelectorAll("button");
+    buttons.forEach(b => b.disabled = true);
 }
 
 function handleKeyShortcuts(e) {
@@ -484,6 +514,7 @@ function handleKeyShortcuts(e) {
     if (confirmEl && confirmEl.offsetParent !== null) {
         if (e.key === "Enter") {
             if (confirmYesBtnEl) confirmYesBtnEl.click();
+            else if (nextBtn) nextBtn.click();
             return;
         }
         if (e.key === "Escape") {
@@ -720,7 +751,7 @@ function addScoreRecord(name, sc, total) {
 function exportToExcel() {
     try {
         const wb = XLSX.utils.book_new();
-        const grades = [7, 8, 9, 10];
+        const grades = [7, 8, '8-tle', 9, 10];
         
         grades.forEach(g => {
             const key = "g" + g + "_scores";

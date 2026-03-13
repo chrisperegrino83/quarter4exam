@@ -2,6 +2,28 @@
 
 All notable changes to the **4th Quarter Assessment Portal** will be documented in this file.
 
+## [1.1.3] - 2026-03-13
+
+### Changed
+- Updated confirmation message to display the current question number (e.g., "Are you sure with your answer in Question #1?") instead of the grade/subject name.
+- Fixed a bug where the exam would not advance to the next question after answering the first item due to modal animation conflicts.
+- Optimized the "Next Question" feedback flow with independent modal management.
+
+## [1.1.2] - 2026-03-13
+
+### Added
+- Added new subject: **Grade 8 - TLE** with its own exam questions, answer key, and student results tracking.
+- Updated admin dashboard to support the new Grade 8 - TLE subject (statistics, results management, and Excel export).
+
+### Changed
+- Standardized subject naming convention across the portal:
+    - Grade 7 -> **Grade 7 - VE**
+    - Grade 8 -> **Grade 8 - VE**
+    - Grade 9 -> **Grade 9 - ESP**
+    - Grade 10 -> **Grade 10 - ESP**
+- Updated all `quiz.html` titles and `script.js` feedback messages to reflect the new subject names.
+- Updated admin dashboard statistics and delete confirmation labels for better clarity.
+
 ## [1.1.1] - 2026-03-12
 
 ### Fixed
