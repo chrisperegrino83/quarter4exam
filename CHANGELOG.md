@@ -2,6 +2,24 @@
 
 All notable changes to the **4th Quarter Assessment Portal** will be documented in this file.
 
+## [1.3.0] - 2026-03-14
+
+### Added
+- **Merge Results Feature**: Introduced a "Merge Results from Other Devices" feature in the Admin Dashboard. Admins can now import Excel exports from multiple devices into a single "master" device for centralized record-keeping.
+- Enhanced duplicate detection during import to prevent redundant entries.
+
+## [1.2.0] - 2026-03-14
+
+### Added
+- **Serverless Migration**: Fully transitioned the system to a serverless architecture using browser `localStorage` for all student data, results, and admin settings.
+- Removed all Firebase dependencies and configuration files.
+- Improved the "Add Student" feature in the Admin Dashboard with the ability to export an updated `students-list.txt` for permanent server updates.
+
+### Changed
+- Updated `README.md` with comprehensive documentation on the new serverless architecture and setup instructions.
+- Standardized versioning across all HTML files and scripts (v1.2.0).
+- Enhanced security by ensuring all result exports are ignored by version control.
+
 ## [1.1.3] - 2026-03-13
 
 ### Changed

@@ -12,7 +12,7 @@ const _audioProbe = document.createElement("audio");
 const _audioExt = _audioProbe && _audioProbe.canPlayType && _audioProbe.canPlayType("audio/wav") ? "wav" : "mp3";
 const correctAudio = new Audio("../assets/sounds/correct." + _audioExt);
 const incorrectAudio = new Audio("../assets/sounds/incorrect." + _audioExt);
-const APP_VERSION = "1.1.3";
+const APP_VERSION = "1.3.0";
 const versionEl = document.getElementById("app-version");
 if (versionEl) versionEl.textContent = APP_VERSION;
 const footerEl = document.querySelector(".app-footer");
@@ -845,12 +845,70 @@ function exportToExcel() {
     }
 }
 
+/**
+ * Submits the student's score to a Google Form via a background fetch.
+ * This allows remote tracking without a complex backend.
+ */
+async function submitToGoogleSheets(grade, name, sc, total) {
+    // Replace this URL with your Google Form action URL
+    // Instructions for the user will be provided separately.
+    const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSc9Mk5vsuZnK1TdVwjoXicKiBDjm-ZLKvQZlmOo5_47uLSUzQ/formResponse"; 
+    
+    if (!GOOGLE_FORM_URL) {
+        console.warn("Google Form URL not set. Remote submission skipped.");
+        return;
+    }
+
+    const pct = total > 0 ? Math.round((sc / total) * 10000) / 100 : 0;
+    
+    // Mapping: Replace entry.XXXX with your Google Form field IDs
+    const formData = new FormData();
+    formData.append('entry.1027307320', name);    // Replace with Name field ID
+    formData.append('entry.1196781000', grade);   // Replace with Grade field ID
+    formData.append('entry.1111253196', sc);      // Replace with Score field ID
+    formData.append('entry.23851287', total);   // Replace with Total field ID
+    formData.append('entry.331970034', pct + '%'); // Replace with Pct field ID
+
+    try {
+        // Use 'no-cors' mode to avoid CORS errors with Google Forms
+        await fetch(GOOGLE_FORM_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            body: formData
+        });
+        console.log("Remote submission attempted.");
+    } catch (e) {
+        console.error("Remote submission failed:", e);
+    }
+}
+
 function recordAndOfferDownload() {
     addScoreRecord(studentName, score, questions.length);
-    // Student download button removed as per requirements.
     
-    // Save to Firebase Firestore if initialized
-    if (typeof saveScoreToFirebase === 'function') {
-        saveScoreToFirebase("10", studentName, score, questions.length);
-    }
+    // Submit to Google Sheets for remote tracking
+    submitToGoogleSheets("10", studentName, score, questions.length);
+
+    // Add a manual 'Download My Result' button for remote students
+    const downloadBtn = document.createElement("button");
+    downloadBtn.textContent = "Download My Result (.xlsx)";
+    downloadBtn.className = "option-btn";
+    downloadBtn.style.marginTop = "10px";
+    downloadBtn.style.background = "linear-gradient(135deg, #a8e063, #56ab2f)";
+    downloadBtn.style.color = "white";
+    downloadBtn.style.border = "none";
+    downloadBtn.onclick = () => {
+        const wb = XLSX.utils.book_new();
+        const pct = questions.length > 0 ? Math.round((score / questions.length) * 10000) / 100 : 0;
+        const data = [{
+            "Name": studentName,
+            "Score": score,
+            "Total": questions.length,
+            "Percentage": pct + "%",
+            "Date/Time": new Date().toLocaleString()
+        }];
+        const ws = XLSX.utils.json_to_sheet(data);
+        XLSX.utils.book_append_sheet(wb, ws, "grade10-result");
+        XLSX.writeFile(wb, `${studentName}_Grade10_Result.xlsx`);
+    };
+    optionsContainer.appendChild(downloadBtn);
 }

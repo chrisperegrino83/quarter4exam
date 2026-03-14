@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login - Assessment Portal</title>
-    <link rel="stylesheet" href="../style.css?v=1.1.1">
+    <link rel="icon" type="image/png" href="../assets/ulhs-logo.png">
+    <link rel="stylesheet" href="../style.css?v=1.3.0">
     <style>
         .login-form {
             display: flex;
@@ -41,8 +42,26 @@
         const loginBtn = document.getElementById('login-btn');
         const errorMsg = document.getElementById('error');
 
-        function doLogin() {
-            if (passInput.value === 'admin123') {
+        /**
+         * Hashes a string using SHA-256 (a one-way cryptographic hash).
+         * Unlike Base64, this CANNOT be decoded back into the original password.
+         */
+        async function sha256(message) {
+            const msgBuffer = new TextEncoder().encode(message);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        }
+
+        async function doLogin() {
+            const inputHash = await sha256(passInput.value);
+            
+            // The SHA-256 hash of the admin password.
+            // This is "one-way", meaning it's mathematically impossible to reverse this 
+            // string back into the original password easily.
+            const _k = "240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9";
+
+            if (inputHash === _k) {
                 sessionStorage.setItem('admin_auth', 'true');
                 window.location.href = 'dashboard.html';
             } else {
