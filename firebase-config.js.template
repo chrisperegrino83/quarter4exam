@@ -1,0 +1,16 @@
+// firebase-config.js.template
+// COPY THIS FILE TO firebase-config.js AND FILL IN YOUR OWN KEYS
+// DO NOT COMMIT YOUR REAL firebase-config.js TO A PUBLIC REPOSITORY!
+
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_PROJECT_ID.firebasestorage.app",
+  messagingSenderId: "YOUR_SENDER_ID",
+  appId: "YOUR_APP_ID",
+  measurementId: "YOUR_MEASUREMENT_ID"
+};
+
+// This is required for compatibility with the scripts in quiz.html
+window.firebaseConfig = firebaseConfig;

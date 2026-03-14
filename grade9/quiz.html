@@ -32,7 +32,25 @@
     <script src="exam-questions.js?v=1.1.1"></script>
     <script src="answer-key.js?v=1.1.1"></script>
 
+    <!-- Firebase SDK (Version 8.x for compatibility) -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    
+    <!-- Firebase Configuration and Service (Local) -->
+    <script src="../firebase-config.js?v=1.1.1"></script>
+    <script src="../firebase-service.js?v=1.1.1"></script>
+
+    <!-- Initialize Firebase (Only if config is set) -->
+    <script>
+      if (typeof firebaseConfig !== 'undefined' && firebaseConfig.apiKey !== 'YOUR_API_KEY') {
+        firebase.initializeApp(firebaseConfig);
+        console.log("Firebase initialized successfully.");
+      } else {
+        console.warn("Firebase configuration is not set. Please update firebase-config.js.");
+      }
+    </script>
+
     <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
     <script src="script.js?v=1.1.1"></script>
-  </body>
-  </html>
+</body>
+</html>

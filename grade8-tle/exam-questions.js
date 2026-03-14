@@ -85,7 +85,6 @@ B. Page title on browser tab
 C. Footer name
 D. Heading section
 
-SOLO LEVEL 3 – MULTISTRUCTURAL
 16. Which of the following is a heading tag?
 A. <h0>
 B. <h8>

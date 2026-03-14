@@ -1,0 +1,21 @@
+# Firebase configuration (contains sensitive API keys)
+firebase-config.js
+
+# Student photos (privacy)
+assets/students-photo/
+
+# Exam results (contains student scores)
+examinees-summary-results.xlsx
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE settings
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

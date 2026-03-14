@@ -613,6 +613,14 @@ async function loadExternalQuestions() {
                     if (window.ANSWER_KEY_DATA) {
                         console.log("Using local script data for answer key.");
                         keyTxt = window.ANSWER_KEY_DATA;
+                        // Check if it's base64 encoded
+                        if (!keyTxt.includes("\n") && keyTxt.length > 20) {
+                            try {
+                                keyTxt = atob(keyTxt);
+                            } catch (e) {
+                                console.warn("Failed to decode base64 answer key, using as is.");
+                            }
+                        }
                     } else {
                         // Priority 2: Fetch key
                         let keyRes = await fetch("answer-key.txt?nocache=" + Date.now());
@@ -627,11 +635,81 @@ async function loadExternalQuestions() {
                     }
                     if (keyTxt) applyAnswerKey(questions, keyTxt);
                 } catch (_) {}
+
+                // Group dependent questions before shuffling
+                const groupedQuestions = groupDependentQuestions(questions, 7);
+                questions = shuffleArray(groupedQuestions);
             }
         }
     } catch (e) {
         console.error("Error in loadExternalQuestions:", e);
     }
+}
+
+/**
+ * Groups dependent questions together so they stay in sequence during shuffling.
+ * Returns an array of either question objects or arrays of question objects (blocks).
+ */
+function groupDependentQuestions(qs, grade) {
+    const blocks = [];
+    const visited = new Set();
+
+    // Define dependencies for each grade
+    const dependencies = {
+        7: [[10, 11, 12, 13], [41, 42]], // 0-indexed: 11-14, 42-43
+        8: [[7, 8, 9], [26, 27, 28, 29]], // 0-indexed: 8-10, 27-30
+        9: [[20, 21]], // 0-indexed: 21-22
+        10: [[11, 12], [30, 31]] // 0-indexed: 12-13, 31-32
+    };
+
+    const gradeDeps = dependencies[grade] || [];
+
+    for (let i = 0; i < qs.length; i++) {
+        if (visited.has(i)) continue;
+
+        let foundGroup = null;
+        for (const group of gradeDeps) {
+            if (group.includes(i)) {
+                foundGroup = group;
+                break;
+            }
+        }
+
+        if (foundGroup) {
+            const block = [];
+            for (const idx of foundGroup) {
+                if (qs[idx]) {
+                    block.push(qs[idx]);
+                    visited.add(idx);
+                }
+            }
+            blocks.push({ type: 'group', items: block });
+        } else {
+            blocks.push({ type: 'single', item: qs[i] });
+            visited.add(i);
+        }
+    }
+    return blocks;
+}
+
+/**
+ * Shuffles the blocks and flattens them back into a single questions array.
+ */
+function shuffleArray(blocks) {
+    for (let i = blocks.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [blocks[i], blocks[j]] = [blocks[j], blocks[i]];
+    }
+
+    const flattened = [];
+    blocks.forEach(block => {
+        if (block.type === 'group') {
+            flattened.push(...block.items);
+        } else {
+            flattened.push(block.item);
+        }
+    });
+    return flattened;
 }
 function parseTxtQuestions(text) {
     // Remove BOM if present
@@ -785,4 +863,9 @@ function exportToExcel() {
 function recordAndOfferDownload() {
     addScoreRecord(studentName, score, questions.length);
     // Student download button removed as per requirements.
+    
+    // Save to Firebase Firestore if initialized
+    if (typeof saveScoreToFirebase === 'function') {
+        saveScoreToFirebase("7", studentName, score, questions.length);
+    }
 }

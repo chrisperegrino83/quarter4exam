@@ -218,7 +218,21 @@
     </div>
 
     <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+    
+    <!-- Firebase SDK (Version 8.x) -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    
+    <!-- Firebase Configuration and Service (Local) -->
+    <script src="../firebase-config.js?v=1.1.1"></script>
+    <script src="../firebase-service.js?v=1.1.1"></script>
+
     <script>
+        // Initialize Firebase
+        if (typeof firebaseConfig !== 'undefined' && firebaseConfig.apiKey !== 'YOUR_API_KEY') {
+            firebase.initializeApp(firebaseConfig);
+        }
+
         const downloadBtn = document.getElementById('download-btn');
         const downloadListBtn = document.getElementById('download-list-btn');
         const addStudentBtn = document.getElementById('add-student-btn');
@@ -320,18 +334,26 @@
             }
         });
 
-        function updateStats() {
+        async function updateStats() {
             const grades = [7, 8, '8-tle', 9, 10];
             statsGrid.innerHTML = '';
             
-            grades.forEach(g => {
+            for (const g of grades) {
+                // Local stats
                 const key = "g" + g + "_scores";
                 const raw = localStorage.getItem(key);
-                let count = 0;
+                let localCount = 0;
                 if (raw) {
                     try {
-                        count = JSON.parse(raw).length;
+                        localCount = JSON.parse(raw).length;
                     } catch (e) {}
+                }
+
+                // Cloud stats
+                let cloudCount = 0;
+                if (typeof getAllScores === 'function') {
+                    const cloudScores = await getAllScores(g);
+                    cloudCount = cloudScores.length;
                 }
                 
                 const card = document.createElement('div');
@@ -345,88 +367,112 @@
                 };
                 const label = labels[g] || 'Grade ' + g;
                 card.innerHTML = `
-                    <h3>${count}</h3>
-                    <p>${label} Examinees</p>
+                    <h3>${cloudCount}</h3>
+                    <p>${label} (Cloud)</p>
+                    <small style="color: #999;">${localCount} Local Records</small>
                 `;
                 statsGrid.appendChild(card);
-            });
+            }
             loadStudentResults();
         }
 
-        function loadStudentResults() {
+        async function loadStudentResults() {
             const grade = manageGradeLevelSelect.value;
-            const key = "g" + grade + "_scores";
-            const raw = localStorage.getItem(key);
-            let records = [];
-            if (raw) {
-                try {
-                    records = JSON.parse(raw);
-                } catch (e) {}
-            }
-
-            resultsTableBody.innerHTML = '';
-            if (records.length === 0) {
-                resultsTableBody.innerHTML = '<tr><td colspan="4" style="text-align:center;">No results found for this grade.</td></tr>';
+            resultsTableBody.innerHTML = '<tr><td colspan="4" style="text-align:center;">Loading cloud results...</td></tr>';
+            
+            if (typeof getAllScores !== 'function') {
+                resultsTableBody.innerHTML = '<tr><td colspan="4" style="text-align:center; color:red;">Error: Firebase service not available.</td></tr>';
                 return;
             }
 
-            records.forEach((r, index) => {
-                const tr = document.createElement('tr');
-                tr.innerHTML = `
-                    <td>${r.name}</td>
-                    <td>${r.score}/${r.total}</td>
-                    <td>${new Date(r.datetime).toLocaleString()}</td>
-                    <td><button class="delete-btn" onclick="deleteResult('${grade}', ${index}, '${r.name}')">Delete</button></td>
-                `;
-                resultsTableBody.appendChild(tr);
-            });
+            try {
+                const scores = await getAllScores(grade);
+                resultsTableBody.innerHTML = '';
+                
+                if (scores.length === 0) {
+                    resultsTableBody.innerHTML = '<tr><td colspan="4" style="text-align:center;">No cloud records found for this grade.</td></tr>';
+                }
+
+                scores.forEach(s => {
+                    const row = document.createElement('tr');
+                    const date = s.datetime ? (s.datetime.toDate ? s.datetime.toDate() : new Date(s.datetime)) : new Date();
+                    
+                    row.innerHTML = `
+                        <td>${s.name}</td>
+                        <td>${s.score} / ${s.total} (${s.percentage}%)</td>
+                        <td>${date.toLocaleString()}</td>
+                        <td>
+                            <button class="delete-btn" onclick="deleteCloudScore('${grade}', '${s.id}', '${s.name}')">Delete</button>
+                        </td>
+                    `;
+                    resultsTableBody.appendChild(row);
+                });
+            } catch (e) {
+                console.error("Failed to load cloud results:", e);
+                resultsTableBody.innerHTML = '<tr><td colspan="4" style="text-align:center; color:red;">Error loading cloud results.</td></tr>';
+            }
         }
 
-        window.deleteResult = function(grade, index, name) {
-            const labels = {
-                '7': 'Grade 7 - VE',
-                '8': 'Grade 8 - VE',
-                '8-tle': 'Grade 8 - TLE',
-                '9': 'Grade 9 - ESP',
-                '10': 'Grade 10 - ESP'
-            };
-            const label = labels[grade] || 'Grade ' + grade;
-            const confirmMsg = `Are you sure you want to DELETE the result for ${name} in ${label}? This action cannot be undone.`;
-            if (confirm(confirmMsg)) {
-                const key = "g" + grade + "_scores";
-                let records = JSON.parse(localStorage.getItem(key) || "[]");
-                records.splice(index, 1);
-                localStorage.setItem(key, JSON.stringify(records));
-                updateStats();
-                alert(`Result for ${name} deleted successfully.`);
+        async function deleteCloudScore(grade, id, name) {
+            if (confirm(`Are you sure you want to permanently delete the score for ${name} from the cloud?`)) {
+                if (typeof deleteScoreFromFirebase === 'function') {
+                    const success = await deleteScoreFromFirebase(grade, id);
+                    if (success) {
+                        alert("Record deleted successfully.");
+                        loadStudentResults();
+                        updateStats();
+                    } else {
+                        alert("Failed to delete record. Please try again.");
+                    }
+                }
             }
-        };
+        }
 
-        downloadBtn.addEventListener('click', () => {
+        downloadBtn.addEventListener('click', async () => {
             const wb = XLSX.utils.book_new();
             const grades = [7, 8, '8-tle', 9, 10];
             
-            grades.forEach(g => {
+            for (const g of grades) {
+                // Fetch from Cloud
+                let cloudScores = [];
+                if (typeof getAllScores === 'function') {
+                    cloudScores = await getAllScores(g);
+                }
+
+                // Fetch from Local
                 const key = "g" + g + "_scores";
-                const raw = localStorage.getItem(key);
-                let records = [];
-                if (raw) {
+                const localRaw = localStorage.getItem(key);
+                let localScores = [];
+                if (localRaw) {
                     try {
-                        records = JSON.parse(raw);
+                        localScores = JSON.parse(localRaw);
                     } catch (e) {}
                 }
+
+                // Combine (Priority to Cloud, avoiding duplicates by name and score)
+                const combined = [...cloudScores];
+                localScores.forEach(ls => {
+                    const isDuplicate = combined.some(cs => cs.name === ls.name && cs.score === ls.score);
+                    if (!isDuplicate) {
+                        combined.push({ ...ls, source: 'Local' });
+                    }
+                });
                 
-                const data = records.map(r => ({
-                    "Name": r.name,
-                    "Score": r.score,
-                    "Total": r.total,
-                    "Percentage": r.percentage + "%",
-                    "Date/Time": new Date(r.datetime).toLocaleString()
-                }));
+                const data = combined.map(r => {
+                    const date = r.datetime ? (r.datetime.toDate ? r.datetime.toDate() : new Date(r.datetime)) : new Date();
+                    return {
+                        "Name": r.name,
+                        "Score": r.score,
+                        "Total": r.total,
+                        "Percentage": r.percentage + "%",
+                        "Date/Time": date.toLocaleString(),
+                        "Source": r.source || 'Cloud'
+                    };
+                });
                 
                 const ws = XLSX.utils.json_to_sheet(data);
                 XLSX.utils.book_append_sheet(wb, ws, "grade" + g + "-result");
-            });
+            }
             
             XLSX.writeFile(wb, "examinees-summary-results.xlsx");
         });
