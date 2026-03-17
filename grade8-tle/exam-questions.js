@@ -84,10 +84,10 @@ C. <txt>
 D. <p>
 
 15. What does the <title> tag control?
-A. Main page text
+A. Page title on browser tab
 B. Heading section
 C. Footer name
-D. Page title on browser tab
+D. Main page text
 
 16. Which of the following is a heading tag?
 A. <h0>
@@ -97,17 +97,17 @@ D. <h10>
 
 17. Which of the following is a method to add CSS?
 A. Inline
-B. Hidden
-C. Layered
-D. Preview
+B. Exline
+C. InTheLine
+D. IntoTheLine
 
 18. Which file type is commonly used for images?
-A. .txt
+A. .git
 B. .gif
-C. .exe
-D. .mp3
+C. .jik
+D. .gip
 
-19. Which part is always in an HTML document?
+19. Which part is always found in an HTML document?
 A. <theme>
 B. <middle>
 C. <left>
@@ -120,22 +120,22 @@ C. font-size
 D. text-size
 
 21. Which of these is a block-level element?
-A. <span>
-B. <em>
-C. <b>
-D. <div>
-
-22. Which is an inline element?
-A. <section>
-B. <article>
-C. <main>
+A. <div>
+B. <spang>
+C. <divs>
 D. <span>
 
+22. Which is an inline element?
+A. <div>
+B. <span>
+C. <sban>
+D. <giv>
+
 23. Which attribute is used in <img>?
-A. img=
-B. link=
+A. srr=
+B. srs=
 C. src=
-D. source=
+D. sra=
 
 24. Which is an HTML5 structural tag?
 A. <shape>
@@ -150,10 +150,10 @@ C. #
 D. !
 
 26. Which is a color format in CSS?
-A. Fraction
+A. Fraction code
 B. Hex code
-C. Binary
-D. Barcode
+C. Binary code
+D. Bar code
 
 27. Which benefit comes from separating HTML and CSS?
 A. Files become incompatible
@@ -163,21 +163,21 @@ D. Less readable code
 
 28. How do <head> and <body> work together?
 A. <head> is for structure; <body> for metadata
-B. Both store images
-C. <head> stores metadata; <body> shows content
-D. Both show visible content
+B. <head> stores video; <body> saves audio
+C. <head> visible content; <body> shows title
+D. <head> stores metadata; <body> shows content
 
 29. How do <div> and <span> differ?
-A. Both are inline
-B. <div> block; <span> inline
-C. <div> inline; <span> block
-D. Neither affects layout
+A. <div> and <span> are both inline
+B. <div> is block and <span> is inline
+C. <div> is inline and <span> is block
+D. <div> and <span> are both block
 
 30. Why is external CSS preferred for large sites?
 A. It prevents errors
 B. It blocks images
-C. It makes HTML disappear
-D. One file can style multiple pages
+C. One file can style multiple pages
+D. It makes HTML disappear
 
 31. Why is the class attribute useful?
 A. It groups elements for styling
@@ -199,8 +199,8 @@ D. Internal deletes inline
 
 34. Why are heading tags important?
 A. They hide text
-B. They structure content
-C. They change browser speed
+B. They change browser speed
+C. They structure content
 D. They replace paragraphs
 
 35. How do CSS selectors work?
@@ -210,10 +210,10 @@ C. They link HTML to the internet
 D. They target HTML elements
 
 36. Margins and padding affect…
-A. Browser menu
+A. Element spacing
 B. Image brightness
 C. Text color
-D. Spacing inside/around an element
+D. Browser menu
 
 37. HTML and CSS relationship?
 A. Both structure
@@ -222,10 +222,10 @@ C. HTML structures; CSS styles
 D. HTML styles; CSS structures
 
 38. Relative vs absolute file paths?
-A. Relative uses full URL
-B. Absolute changes colors
-C. Both require internet
-D. Absolute = full URL; relative = folder-based
+A. Relative uses full URL; Absolute uses folder-based
+B. Absolute changes colors; Relative changes positions
+C. Relative and Absolute requires internet
+D. Absolute uses full URL; relative = folder-based
 
 39. What do hyperlinks do?
 A. Connect pages/sites
@@ -235,15 +235,15 @@ D. Display images
 
 40. Which combination creates a webpage layout?
 A. <big>, <small>, <page>
-B. <text>, <style>, <float>
+B. <header>, <nav>, <section>
 C. <up>, <down>, <middle>
-D. <header>, <nav>, <section>
+D. <text>, <style>, <float>
 
 41. Improve messy HTML by…
-A. Adding nesting & formatting
+A. Converting to images
 B. Removing indentation
 C. Deleting tags randomly
-D. Converting to images
+D. Adding nesting & formatting
 
 42. Maintain color consistency by…
 A. Random colors
@@ -258,16 +258,16 @@ C. Tiny text
 D. More animations
 
 44. Box model improves spacing by…
-A. Removing margins
-B. Changing file paths
-C. Deleting whitespace
-D. Adjusting padding, borders, margins
+A. Adjusting padding, borders and margins
+B. Changing file paths and folder names
+C. Deleting whitespace and empty lines
+D. Removing margins and padding
 
 45. Simplify long HTML file by…
-A. Removing CSS
-B. Using classes + external CSS
-C. Adding more inline styles
-D. Replacing divs with images
+A. Removing CSS + inline styles
+B. Replacing divs + images
+C. Adding inline styles + classes
+D. Using classes + external CSS
 
 46. If CSS fails to load…
 A. Browser closes
@@ -283,18 +283,19 @@ D. <bottom>
 
 48. Which element is an inline element?
 A. <span>
-B. <main>
-C. <article>
-D. <section>
+B. <div>
+C. <divs>
+D. <spain>
 
-49. Which method adds CSS?
+49. Which method cannot be used to adds CSS?
 A. Inline
-B. Hidden
-C. Preview
-D. Layered
+B. Internal
+C. Imperial
+D. External
 
 50. Adapt webpage for mobile by…
 A. Disable scrolling
-B. Responsive CSS
+B. Use fixed widths
 C. Add large images
-D. Use fixed widths`;
+D. Responsive CSS
+`;

@@ -2,6 +2,17 @@
 
 All notable changes to the **4th Quarter Assessment Portal** will be documented in this file.
 
+## [1.4.1] - 2026-03-17
+
+### Fixed
+- **Robust Question Parser**: Improved the question parsing logic to handle varied formatting (e.g., options with or without dots like `A.` or `A `) and irregular spacing, preventing scoring misalignment.
+- **Scoring & Review Sync**: Fixed a conflict between the scoring engine and the "Review Your Answers" feature. Both now use a unified index-based comparison for 100% accuracy.
+- **TLE Content Rendering**: Implemented HTML escaping in the review screen to correctly display technical content (like HTML tags) that was previously being hidden or misinterpreted by the browser.
+- **Keyboard Shortcut Scoring**: Resolved a bug where using number keys (1-4) to select answers resulted in zero points.
+- **Data Integrity**: Fixed a bug that caused duplicate score records when navigating between the results and review screens.
+- **Repeat Exam Reset**: Ensured all answer data (including indices) is fully cleared when a student chooses to "Repeat Exam".
+- **Grade 7 & 9 Content**: Fixed specific label errors, duplicate options, and answer key mismatches in Grade 7 and Grade 9 question files.
+
 ## [1.4.0] - 2026-03-17
 
 ### Added

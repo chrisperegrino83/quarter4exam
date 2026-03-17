@@ -11,10 +11,10 @@ C.	Pagiging mabuting mamamayan
 D.	Pagtatamo ng mapayapang lipunan 
 
 3.	Si Carlo ay empleyado ng isang kompanya na nagkaroon ng pagkakataon na pamunuan ang isang proyekto na layuning magbigay ng serbisyong pampubliko. Nais niyang ipakita ang tamang pagpapakatao at malasakit sa kaniyang bayan habang pinapaunlad ang sarili. Ano ang ginawa ni Carlo upang maipakita ang tamang pagpapakatao at malasakit sa kanyang bayan habang pinapaunlad ang sarili?
-A. Inuna ang sariling interes.
-B. Binalewala ang layunin ng proyekto.  
-C. Hindi nakikipagtulungan sa clean-up drive.
-D. Nagtatag ng libreng workshap para sa kabataan.
+A.	Inuna ang sariling interes.
+B.	Binalewala ang layunin ng proyekto.  
+C.	Hindi nakikipagtulungan sa clean-up drive.
+D.	Nagtatag ng libreng workshap para sa kabataan.
 
 4.	May isang ina na may tatlong anak na nagsisikap maging mabuting halimbawa. Paparating na ang halalan at nais niyang ipakita sa kanyang mga anak ang kahalagahan ng pagkakaroon ng mabuting pinuno para sa komunidad at bayan. Ano ang gagawin ng ina upang masigurong mabuti ang kanyang napiling kandidato?
 A.	Ipagbili ang mga boto para magkapera. 
@@ -67,8 +67,8 @@ D.	Mabuting pakikisalamuha sa lipunan
 12.	Paano ipinapaliwanag ng buhay ni Mother Teresa ang mahalagang papel ng pamilya bilang gabay sa pagpili ng mga mabubuting pinuno na maglilingkod sa bayan?
 A.	Si Mother Teresa ay hindi naging gabay ng kanyang pamilya sa pagpili ng mga mabuting lider sa komunidad.
 B.  Walang kaugnayan ang buhay ni Mother Teresa sa mga aral ng pamilya tungkol sa pagkilatis ng mabuting lider.
-B.	Ang pamilya ni Mother Teresa ay walang epekto sa kanyang pagiging lider, at natutuhan niya ang lahat ng kanyang katangian mula sa kanyang karanasan sa labas ng pamilya.
-C.	Ipinapakita ng buhay ni Mother Teresa na ang mga prinsipyo at katangian ng isang mabuting lider ay kadalasang nagmumula sa mga aral at gabay ng pamilya, tulad ng pagpapakumbaba at malasakit sa kapuwa.
+C.	Ang pamilya ni Mother Teresa ay walang epekto sa kanyang pagiging lider, at natutuhan niya ang lahat ng kanyang katangian mula sa kanyang karanasan sa labas ng pamilya.
+D.	Ipinapakita ng buhay ni Mother Teresa na ang mga prinsipyo at katangian ng isang mabuting lider ay kadalasang nagmumula sa mga aral at gabay ng pamilya, tulad ng pagpapakumbaba at malasakit sa kapuwa.
 
 13.	Ikaw ay aktibong gumagamit ng facebook.  Sa maraming pagkakataon, nagpapakita ka ng pagiging responsable sa paggamit ng social media tulad ng pagbabagi ng buhay ni Mother Teresa. Alin sa mga sumusunod ang tamang hakbang na iyong gagawin sa pabahagi ng impormasyon sa social media?
 A.	Ipagkalat ang maling impormasyon tungkol kay Mother Theresa 
@@ -86,7 +86,7 @@ D.	Magbidyo muna bago tumulong sa kapitbahay na nasunogan.
 A.	Ang espirituwalidad ni Juan ay nagtuturo ng malasakit at responsibilidad sa kalikasan, na nagpapalakas sa kanyang layuning gumawa ng mabuti.
 B.	Aktibo si Juan sa kalikasan bilang halimbawa ng pagnanais maglingkod sa iba.
 C.	Nauunawaan ni Juan na ang pag-aalaga sa kalikasan ay bahagi ng kanyang misyon sa Diyos at komunidad.
-D.	Ang espirituwalidad ni Juan ay nagpapalakas sa kanyang malasakit at responsibilidad sa kalikasan.
+D.	Ang pakikilahok sa mga gawaing pangkalikasan ay nagpapakita ng kaniyang pananagutan sa bayan.
 
 16.	Si David ay isang debotong mananampalataya na nais gamitin ang kanyang espirituwalidad upang magbigay ng mabuting halimbawa sa kanyang komunidad. Alin sa mga hakbang na ito ang pinakamainam na gawin ni David upang magamit ang kanyang espirituwalidad sa pagiging mabuting mamamayan?
 A.	Magdaos ng mga aktibidad na pang-isports.  
@@ -112,17 +112,17 @@ B.	Ang glokalisasyon ay binibigyang diin ang paggamit ng lokal na mga solusyon l
 C.	Ang glokalisasyon ay tumutukoy sa pagpapalaganap ng mga lokal na ideya sa buong mundo, habang ang globalisasyon ay eksklusibo sa mga lokal na lugar. 
 D.	Ang glokalisasyon ay nangangahulugang iniangkop ang mga pandaigdigang ideya o produkto sa mga lokal na pangangailangan, samantalang ang globalisasyon ay ang pagpapalawak ng mga ideya at produkto sa buong mundo. 
 
-20.	Ang mga Tboli na kilala sa kanilang mga handicraft ay nag-organisa ng isang kooperatiba na naglalayong mapalago ang kanilang mga produkto, tulad ng T’nalak. Sa pamamagitan ng pagsasama-sama, nagawa nilang mabawasan ang gastos sa produksyon at mas mapabuti ang kalidad ng kanilang mga produkto. Ang mga ito ay naging popular hindi lamang sa lokal na merkado kundi pati na rin sa mga turista, na nagdulot ng pagtaas ng kita at trabaho sa komunidad. Paano nakatulong ang glokalisasyon sa pag-unlad ng ekonomiya ng mga taga T’boli?
-A. Sa pamamagitan ng pagpapabaya sa lokal na industriya at pagtutok sa global trade lamang.
-B. Sa pamamagitan ng pagtutok lamang sa lokal na produkto at hindi pagtanggap ng global na ideya. 
-C. Sa pamamagitan ng panggagaya sa lahat ng global na pamamaraan kahit hindi ito akma sa lokal na kondisyon
-D. Sa pamamagitan ng pag-angkop ng mga global na teknolohiya at ideya upang mapahusay ang kanilang lokal na produkto at serbisyo. 
+20.	Ang mga Tboli na kilala sa ay nag-organisa ng isang kooperatiba na naglalayong mapalago ang kanilang mga produkto, tulad ng T’nalak. Sa pamamagitan ng pagsasama-sama, nagawa nilang mabawasan ang gastos sa produksyon at mas mapabuti ang kalidad ng kanilang mga produkto. Ang mga ito ay naging popular hindi lamang sa lokal na merkado kundi pati na rin sa mga turista, na nagdulot ng pagtaas ng kita at trabaho sa komunidad. Paano nakatulong ang glokalisasyon sa pag-unlad ng ekonomiya ng mga taga T’boli?
+A.	Sa pamamagitan ng pagpapabaya sa lokal na industriya at pagtutok sa global trade lamang.
+B.	Sa pamamagitan ng pagtutok lamang sa lokal na produkto at hindi pagtanggap ng global na ideya. 
+C.	Sa pamamagitan ng panggagaya sa lahat ng global na pamamaraan kahit hindi ito akma sa lokal na kondisyon
+D.	Sa pamamagitan ng pag-angkop ng mga global na teknolohiya at ideya upang mapahusay ang kanilang lokal na produkto at serbisyo. 
 
-21. Ang sikat na artistang si Melai ay nag-organisa ng feeding program para sa mga batang lansangan at hinihikayat ang kanyang mga tagahanga na tumulong. Paano ipinamalas ni Melai ang katangian ng pagpapakatao sa pagtupad ng kaniyang tungkulin bilang isang kilalang personalidad?
-A. Sa pamamagitan ng pagdedepende lamang sa iba.
-B. Sa pamamagitan ng pag-iwas sa responsibilidad.
-C. Sa pamamagitan ng aktibong pagtulong at paghikayat sa iba.
-D. Sa pamamagitan ng pagtulong sa kapuwa ngunit hindi bukal sa kalooban.
+21.	Ang sikat na artistang si Melai ay nag-organisa ng feeding program para sa mga batang lansangan at hinihikayat ang kanyang mga tagahanga na tumulong. Paano ipinamalas ni Melai ang katangian ng pagpapakatao sa pagtupad ng kaniyang tungkulin bilang isang kilalang personalidad?
+A.	Sa pamamagitan ng pagdedepende lamang sa iba.
+B.	Sa pamamagitan ng pag-iwas sa responsibilidad.
+C.	Sa pamamagitan ng aktibong pagtulong at paghikayat sa iba.
+D.	Sa pamamagitan ng pagtulong sa kapuwa ngunit hindi bukal sa kalooban.
 
 22.	Ang Biography at Background o B2 ay isa sa mga paraan ng wastong pagpili ng mabubuting pinuno. Ito ay naglalaman ng pagsusuri ng mga kandidato, pag-unawa sa mga isyu, at aktibong pagtutok sa pangangampanya na maaaring ituro ng pamilya sa pamamagitan ng pagkilala nang maigi sa mga kandidato. Alin sa mga sumusunod na pahayag ang nagpapakita ng wastong paglalapat ng B2 (Biography at Background) sa pagpili ng mabuting pinuno?
 A.	Ihalal ang kandidato dahil sa kanilang popularidad sa telebisyon.

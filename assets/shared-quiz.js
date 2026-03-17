@@ -1,5 +1,4 @@
 let questions = [];
-let userAnswers = []; // Suggestion #3: Track user answers
 
 const questionEl = document.getElementById("question");
 const optionsContainer = document.getElementById("options-container");
@@ -21,7 +20,7 @@ const _audioProbe = document.createElement("audio");
 const _audioExt = _audioProbe && _audioProbe.canPlayType && _audioProbe.canPlayType("audio/wav") ? "wav" : "mp3";
 const correctAudio = new Audio("../assets/sounds/correct." + _audioExt);
 const incorrectAudio = new Audio("../assets/sounds/incorrect." + _audioExt);
-const APP_VERSION = "1.4.0"; // Updated version
+const APP_VERSION = "1.4.1"; // Updated version
 const versionEl = document.getElementById("app-version");
 if (versionEl) versionEl.textContent = APP_VERSION;
 const footerEl = document.querySelector(".app-footer");
@@ -250,7 +249,7 @@ function showNameForm() {
 
             score = 0;
             current = 0;
-            userAnswers = []; // Reset answers
+            questions.forEach(q => q.userAnswer = null); // Reset answers
             nameInputEl = null;
             startBtnEl = null;
             console.log("Auth success. Loading questions...");
@@ -275,6 +274,7 @@ function renderQuestion() {
     clearTransient();
     answered = false;
     selectedAnswer = null;
+    selectedIdx = null;
 
     if (footerEl) footerEl.style.display = "none";
 
@@ -293,24 +293,26 @@ function renderQuestion() {
     optionsContainer.innerHTML = "";
     optionButtons = [];
 
-    // Shuffle options before rendering
-    const shuffledOptions = [...q.a];
+    // Shuffle options before rendering and keep track of original index
+    const shuffledOptions = q.a.map((opt, originalIdx) => ({ opt, originalIdx }));
     for (let i = shuffledOptions.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [shuffledOptions[i], shuffledOptions[j]] = [shuffledOptions[j], shuffledOptions[i]];
     }
 
-    shuffledOptions.forEach(opt => {
+    shuffledOptions.forEach(item => {
         const btn = document.createElement("button");
-        btn.textContent = opt;
+        btn.textContent = item.opt;
         btn.className = "option-btn";
-        btn.addEventListener("click", () => onOptionClick(opt, btn));
+        btn.addEventListener("click", () => onOptionClick(item.opt, btn, item.originalIdx));
         optionsContainer.appendChild(btn);
         optionButtons.push(btn);
     });
     scoreDisplay.style.display = "block";
     scoreDisplay.textContent = "Score: " + score;
 }
+
+let hasSubmitted = false;
 
 function showFinalScore() {
     isQuizActive = false;
@@ -321,8 +323,8 @@ function showFinalScore() {
     else if (score > 20) scoreColor = "#f1c40f";
     else if (score > 10) scoreColor = "#e67e22";
 
-    questionEl.innerHTML = (studentName ? (studentName + ", ") : "") + 
-        "Tapos na ang pagsagot mo sa " + config.examTitle + ".<br>" +
+    questionEl.innerHTML = (studentName ? (escapeHTML(studentName) + ", ") : "") + 
+        "Tapos na ang pagsagot mo sa " + escapeHTML(config.examTitle) + ".<br>" +
         "<span style='font-size: 2.5rem; color: " + scoreColor + "; display: block; margin-top: 15px; font-weight: 800;'>" + 
         score + " / " + questions.length + "</span>";
         
@@ -347,7 +349,7 @@ function showFinalScore() {
     reviewBtn.style.background = "linear-gradient(135deg, #f093fb, #f5576c)";
     reviewBtn.style.color = "white";
     reviewBtn.style.border = "none";
-    reviewBtn.onclick = renderReview;
+    reviewBtn.onclick = () => renderReview(questions);
     optionsContainer.appendChild(reviewBtn);
 
     // Add Repeat Exam button
@@ -362,17 +364,61 @@ function showFinalScore() {
         if (confirm("Are you sure you want to repeat the exam? Your current score has already been recorded.")) {
             score = 0;
             current = 0;
-            userAnswers = [];
+            hasSubmitted = false;
+            questions.forEach(q => {
+                q.userAnswer = null;
+                q.userAnswerIdx = null;
+            });
             renderQuestion();
         }
     };
     optionsContainer.appendChild(repeatBtn);
 
-    recordAndOfferDownload();
+    if (!hasSubmitted) {
+        recordAndOfferDownload();
+        hasSubmitted = true;
+    } else {
+        // Still offer the download button if they came back from Review
+        const downloadBtn = document.createElement("button");
+        downloadBtn.textContent = "Download My Result (.xlsx)";
+        downloadBtn.className = "option-btn";
+        downloadBtn.style.marginTop = "10px";
+        downloadBtn.style.background = "linear-gradient(135deg, #a8e063, #56ab2f)";
+        downloadBtn.style.color = "white";
+        downloadBtn.style.border = "none";
+        downloadBtn.onclick = () => {
+            const wb = XLSX.utils.book_new();
+            const pct = questions.length > 0 ? Math.round((score / questions.length) * 10000) / 100 : 0;
+            const data = [{
+                "Name": studentName,
+                "Score": score,
+                "Total": questions.length,
+                "Percentage": pct + "%",
+                "Date/Time": new Date().toLocaleString()
+            }];
+            const ws = XLSX.utils.json_to_sheet(data);
+            XLSX.utils.book_append_sheet(wb, ws, "grade" + config.grade + "-result");
+            XLSX.writeFile(wb, `${studentName}_Grade${config.grade}_Result.xlsx`);
+        };
+        optionsContainer.appendChild(downloadBtn);
+    }
+}
+
+function escapeHTML(str) {
+    if (!str) return "";
+    return str.replace(/[&<>"']/g, function(m) {
+        return {
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            '"': '&quot;',
+            "'": '&#039;'
+        }[m];
+    });
 }
 
 // Suggestion #3: Post-Quiz Review Screen implementation
-function renderReview() {
+function renderReview(qs) {
     clearTransient();
     questionEl.textContent = "Review Your Answers";
     optionsContainer.innerHTML = "";
@@ -387,9 +433,18 @@ function renderReview() {
     reviewList.style.borderRadius = "8px";
     reviewList.style.background = "#f9f9f9";
 
-    questions.forEach((q, index) => {
-        const userAnswer = userAnswers[index];
-        const isCorrect = userAnswer === q.correct;
+    qs.forEach((q, index) => {
+        const userAnswer = q.userAnswer;
+        const userAnswerIdx = q.userAnswerIdx;
+        const correctIdx = q.correctIdx;
+        const correctText = q.correct;
+        
+        let isCorrect = false;
+        if (typeof correctIdx === "number" && typeof userAnswerIdx === "number") {
+            isCorrect = userAnswerIdx === correctIdx;
+        } else {
+            isCorrect = userAnswer === correctText;
+        }
         
         const item = document.createElement("div");
         item.className = "review-item";
@@ -398,11 +453,11 @@ function renderReview() {
         item.style.borderBottom = "1px solid #eee";
         
         item.innerHTML = `
-            <p style="font-weight: 700; margin-bottom: 5px;">${index + 1}. ${q.q}</p>
+            <p style="font-weight: 700; margin-bottom: 5px;">${index + 1}. ${escapeHTML(q.q)}</p>
             <p style="margin: 0; color: ${isCorrect ? '#27ae60' : '#e74c3c'}">
-                <b>Your Answer:</b> ${userAnswer || "No answer"} ${isCorrect ? "✓" : "✗"}
+                <b>Your Answer:</b> ${escapeHTML(userAnswer) || "No answer"} ${isCorrect ? "✓" : "✗"}
             </p>
-            ${!isCorrect ? `<p style="margin: 0; color: #27ae60"><b>Correct Answer:</b> ${q.correct}</p>` : ""}
+            ${!isCorrect ? `<p style="margin: 0; color: #27ae60"><b>Correct Answer:</b> ${escapeHTML(correctText)}</p>` : ""}
         `;
         reviewList.appendChild(item);
     });
@@ -417,9 +472,12 @@ function renderReview() {
     optionsContainer.appendChild(backToResultBtn);
 }
 
-function onOptionClick(opt, btn) {
+let selectedIdx = null;
+
+function onOptionClick(opt, btn, originalIdx) {
     if (answered) return;
     selectedAnswer = opt;
+    selectedIdx = originalIdx;
     const all = optionsContainer.querySelectorAll("button");
     all.forEach(b => b.classList.remove("option-selected"));
     if (btn) btn.classList.add("option-selected");
@@ -499,15 +557,20 @@ function confirmYes(btn) {
     confirmNoBtnEl = null;
     document.removeEventListener("keydown", handleConfirmKeydown);
 
-    // Store user answer for review
-    userAnswers[current] = selectedAnswer;
+    questions[current].userAnswer = selectedAnswer;
+    questions[current].userAnswerIdx = selectedIdx;
 
     const correct = questions[current].correct;
-    const hasKey = typeof correct === "string" && correct.length > 0;
+    const correctIdx = questions[current].correctIdx;
+    const hasKey = (typeof correct === "string" && correct.length > 0) || (typeof correctIdx === "number");
     let isCorrect = false;
 
     if (hasKey) {
-        isCorrect = selectedAnswer === correct;
+        if (typeof correctIdx === "number") {
+            isCorrect = selectedIdx === correctIdx;
+        } else {
+            isCorrect = selectedAnswer === correct;
+        }
         if (isCorrect) {
             score += 1;
             scoreDisplay.textContent = "Score: " + score;
@@ -614,9 +677,7 @@ function handleKeyShortcuts(e) {
         const n = parseInt(e.key, 10);
         if (!isNaN(n) && n >= 1 && n <= optionButtons.length) {
             const idx = n - 1;
-            const btn = optionButtons[idx];
-            const optText = questions[current].a[idx];
-            onOptionClick(optText, btn);
+            optionButtons[idx].click();
         }
     }
 }
@@ -805,19 +866,43 @@ function parseTxtQuestions(text) {
         }
         
         let lineHasLabel = false;
-        labels.forEach((label) => {
+        // More flexible labels: match A., B., C., D. or A, B, C, D followed by space
+        const labelsWithDots = ["A.", "B.", "C.", "D."];
+        const labelsWithoutDots = ["A ", "B ", "C ", "D "];
+        
+        labelsWithDots.forEach((label) => {
             let startIdx = line.indexOf(label);
             if (startIdx !== -1 && (startIdx === 0 || /\s/.test(line[startIdx - 1]))) {
                 lineHasLabel = true;
             }
         });
+        
+        if (!lineHasLabel) {
+            labelsWithoutDots.forEach((label) => {
+                let startIdx = line.indexOf(label);
+                if (startIdx !== -1 && (startIdx === 0 || /\s/.test(line[startIdx - 1]))) {
+                    lineHasLabel = true;
+                }
+            });
+        }
 
         if (lineHasLabel) {
             let currentLabelIndices = [];
-            labels.forEach((label, idx) => {
-                let pos = line.indexOf(label);
-                if (pos !== -1 && (pos === 0 || /\s/.test(line[pos - 1]))) {
-                    currentLabelIndices.push({ label, pos, idx });
+            // Try dots first, then spaces
+            const labelsToUse = ["A", "B", "C", "D"];
+            labelsToUse.forEach((l, idx) => {
+                // Check for "A."
+                let dotLabel = l + ".";
+                let dotPos = line.indexOf(dotLabel);
+                if (dotPos !== -1 && (dotPos === 0 || /\s/.test(line[dotPos - 1]))) {
+                    currentLabelIndices.push({ label: dotLabel, pos: dotPos, idx });
+                } else {
+                    // Check for "A "
+                    let spaceLabel = l + " ";
+                    let spacePos = line.indexOf(spaceLabel);
+                    if (spacePos !== -1 && (spacePos === 0 || /\s/.test(line[spacePos - 1]))) {
+                        currentLabelIndices.push({ label: spaceLabel, pos: spacePos, idx });
+                    }
                 }
             });
             
@@ -850,6 +935,7 @@ function applyAnswerKey(qs, keyText) {
         const idx = map[letter];
         if (idx != null && qs[i].a[idx] != null) {
             qs[i].correct = qs[i].a[idx];
+            qs[i].correctIdx = idx;
         }
     }
 }

@@ -81,7 +81,9 @@ body {
 .g7 { background-color: #673ab7; } /* Purple */
 .g8 { background-color: #e91e63; } /* Pink */
 .g9 { background-color: #ff9800; } /* Orange */
-.g10 { background-color: #4caf50; } /* Green */
+.g10 { background-color: #0e42c3; } /* Blue */
+.g11 { background-color: #4caf50; } /* Green */
+.g12 { background-color: #673ab7; } /* Purple */
 .g8-tle { background-color: #009688; } /* Teal */
 .btn-home {
     background-color: #7f8c8d;

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard - Assessment Portal</title>
     <link rel="icon" type="image/png" href="../assets/ulhs-logo.png">
-    <link rel="stylesheet" href="../style.css?v=1.4.0">
+    <link rel="stylesheet" href="../style.css?v=1.4.1">
     <style>
         .dashboard-container {
             max-width: 800px;
@@ -135,7 +135,7 @@
             <img src="../assets/ulhs-logo.png" alt="School Logo" style="width: 80px;" />
             <h1>Admin Dashboard</h1>
         </div>
-
+        
         <div class="section">
             <h2>Quiz Timer Settings</h2>
             <p>Configure a timer for all quizzes. This setting applies to all grade levels.</p>
@@ -158,9 +158,13 @@
         </div>
 
         <div class="section">
-            <h2>Download Results</h2>
-            <p>Export all exam results to a single Excel file.</p>
-            <button id="download-btn" class="btn g10">Download Summary Results (Excel)</button>
+            <h2>Download or View Results</h2>
+            <!-- <p>Export all exam results to a single Excel file.</p> -->
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+                <button id="download-btn" class="btn g10">Download Summary Results (Excel)</button>
+                <button onclick="window.open('https://docs.google.com/spreadsheets/d/1i5McSA0hf8RBH9tM3jg_rmEoCkXfsCO9lKOI_9AV0tI/edit?gid=677611844#gid=677611844', '_blank')" class="btn g11">View Results in Google Sheets</button>
+                <button onclick="window.open('https://docs.google.com/forms/d/1x5aKMgrHC1ptNN7cCa5R7aD4cbi7wFUiBP_xMuPyNvk/edit#responses', '_blank')" class="btn g12">View Responses in Google Forms</button>
+            </div>
         </div>
 
         <div class="section">
@@ -251,6 +255,7 @@
         <button onclick="logout()" class="btn logout-btn">Logout</button>
         <a href="../index.html" style="display: block; margin-top: 20px; text-align: center; color: #666; text-decoration: none;">Back to Student Portal</a>
     </div>
+    <footer class="app-footer">© 2026 Sir Chris | Version 1.4.1</footer>
 
     <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
     

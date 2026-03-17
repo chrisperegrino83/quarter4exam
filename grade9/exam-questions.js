@@ -182,8 +182,8 @@ D.	Piliin ang STEM kahit hindi ito ang kanyang hilig, dahil ito ang pinapayo ng 
 31.	Mahalagang maglaan ng oras sa pag-iisip bago mamili, dahil ito ang tutulong sa iyo na makita ang kabuuan at ang iba’t ibang anggulo ng sitwasyon. Mas maraming kaalaman sa mga bagay at sitwasyon, mas malinaw itong makikita. Mas malaki ang panahon at oras sa pag-iisip ng solusyon, mas malaki rin ang pagkakataon na maging tugma at angkop ito sa mga bagay na pinili o ninanais. Bilang mag-aaral, paano ka makatutulong sa pag-unlad ng ekonomiya ng ating bansa?
 A.	sa pamamagitan ng pagsunod kung ano ang utos ng mga nakatatanda 
 B.	sa pamamagitan ng pag-aaral ng mabuti para sa magandang kinabukasan 
-C.	sa pamamagitan ng pagpapanatili kung ano ang nasa iyong isipan upang aasenso sa buhay 
-D.	sa pamamagitan ng pagpapanatili kung ano ang nasa iyong isipan upang aasenso sa buhay
+C.	sa pamamagitan ng pakikilahok sa mga gawaing pansibiko sa komunidad
+D.	sa pamamagitan ng pagiging mapanagutan sa lahat ng desisyon at kilos
 
 32.	Si Hannah ay nagsumikap sa kaniyang pag-aaral at ng kalauna’y naging isang ganap na doktor. Nakadadama siya ng labis na kasiyahan sa kaniyang panggagamot. Madalas rin siyang nagsasagawa ng mga medical missions sa mga probinsya upang matulungan ang mga kapuspalad. Bakit mahalagang magkaroon ng personal na pahayag ng misyon sa buhay? 
 A.	dahil ito ang iyong personal na kredo tungo sa mataas na pagpapahalaga sa layunin ng buhay.  
