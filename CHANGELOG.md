@@ -2,6 +2,22 @@
 
 All notable changes to the **4th Quarter Assessment Portal** will be documented in this file.
 
+## [1.4.0] - 2026-03-17
+
+### Added
+- **Quiz Timer**: Implemented a fully configurable quiz timer. Teachers can enable/disable it and set the duration and a "warning" threshold from the Admin Dashboard.
+- **Visual Timer UI**: The timer includes a top progress bar and changes color to red when the warning threshold is reached. It also pulses in the last 10 seconds to alert the student.
+- **Post-Quiz Review**: Students can now review their answers after completing the quiz. The review screen shows each question, their answer, and the correct answer.
+- **Navigation Guard**: Added a browser confirmation prompt to prevent students from accidentally reloading or leaving the page while the quiz is active.
+
+### Changed
+- **Code Refactoring**: Consolidated all grade-level JavaScript into a single `assets/shared-quiz.js` file. This significantly improves maintainability and reduces code duplication.
+- **Dynamic Configuration**: Each `quiz.html` now uses a `window.QUIZ_CONFIG` object to pass grade-specific settings to the shared script.
+- **Modernized Timer Style**: Relocated the timer to a floating HUD on the right side of the screen, below the score, for a cleaner and more modern UI.
+
+### Fixed
+- **Answer Key Mismatch**: Fixed a critical bug where the `answer-key.js` files were not being parsed correctly due to improper Base64 encoding. The system now uses plain text for all answer keys, ensuring accurate checking.
+
 ## [1.3.0] - 2026-03-14
 
 ### Added

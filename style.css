@@ -112,6 +112,8 @@ body {
     margin: 0;
     display: none; /* Controlled by JS */
     animation: popIn 0.5s ease-out;
+    width: 160px; /* Matching timer for consistent look */
+    text-align: center;
 }
 
 .score-pulse {
@@ -246,6 +248,56 @@ body {
     grid-template-columns: repeat(3, 1fr);
     gap: 15px;
     margin-top: 20px;
+}
+
+#quiz-timer {
+    position: fixed;
+    top: 140px; /* Positioned below floating score (80px + approx 75px height/gap) */
+    right: 16px;
+    background: linear-gradient(135deg, #2c3e50, #4ca1af);
+    color: white;
+    padding: 10px 18px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    display: none;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+    text-align: center;
+    width: 160px; /* Matching score display */
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    z-index: 1000;
+    animation: popIn 0.6s ease-out;
+}
+
+.timer-pulse {
+    animation: timerPulse 0.8s infinite alternate cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+@keyframes timerPulse {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(1.05); opacity: 0.9; box-shadow: 0 0 20px rgba(255, 71, 87, 0.5); background: linear-gradient(135deg, #ff4757, #ff6b81); }
+}
+
+#timer-progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: rgba(0,0,0,0.05);
+    z-index: 1002;
+    display: none;
+}
+
+#timer-progress-bar {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to right, #27ae60, #2ecc71);
+    transition: width 1s linear, background 0.5s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
 #options-container button,

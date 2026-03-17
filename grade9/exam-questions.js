@@ -16,8 +16,6 @@ B.	Conventional
 C.	Investigative
 D.	Social
 
-
-
 4.	Likas sa mga taong nasa ganitong grupo ang pagiging mapanghikayat, mahusay mangumbinsi ng iba para sa pagkamit ng inaasahan o target goals. Halimbawa dito ay ang mga sales officer, human resource officer, banker, at iba pa. Anong uri ng interes ito?
 A.	Enterprising
 B.	Conventional
@@ -121,11 +119,7 @@ B.	Magnilay sa mismong aksiyon.
 C.	Tayain ang damdamin sa napiling isasagawang pasiya.
 D.	Hingin ang gabay ng Diyos sa isasagawang pagpapasiya.
 
-For questions 21-22...
-
-Si Harold ay isang mag-aaral sa Baitang 9. Mithiin niyang maging isang guro sa hinaharap dahil nakita niya ang matinding kakulangan sa aspeto ng edukasyon sa Pilipinas at maraming mga batang kagaya niya ang walang kakayanang makapag-aral. Nais niyang maging guro upang makatulong sa mga bata tungo sa kanilang pagkatuto dahil para sa kanya, “Ang kabataan ang pag-asa ng bayan”.
-
-21.	Ano ang nais ni Harold na maganap sa kanyang pagiging isang guro sa hinaharap?
+21.	Si Harold ay isang mag-aaral sa Baitang 9. Mithiin niyang maging isang guro sa hinaharap dahil nakita niya ang matinding kakulangan sa aspeto ng edukasyon sa Pilipinas at maraming mga batang kagaya niya ang walang kakayanang makapag-aral. Nais niyang maging guro upang makatulong sa mga bata tungo sa kanilang pagkatuto dahil para sa kanya, “Ang kabataan ang pag-asa ng bayan”. Ano ang nais ni Harold na maganap sa kanyang pagiging isang guro sa hinaharap?
 A.	Maging aktibo sa anumang gawain sa paaralan
 B.	Maging abala sa araw-araw upang maging maunlad sa buhay
 C.	Makatulong sa mga kabataang walang kakayahang makapag-aral
@@ -135,8 +129,7 @@ D.	Maging pursigido, determinado sa pagsasagawa ng mga naisin bilang isang guro
 A.	Oo, dahil ito ay may layuning makapag-abot ng tulong sa kapuwa.
 B.	Oo, dahil isinasa-alang-alng niya ang sarili niyang kapakanan.
 C.	Hindi, dahil ito ay isang paraan lamang niya ito para kumita ng pera.
-D.	Hindi, dahil naniniwala siya na kapag ginawa niya ito ay makukuha 
-niya ang atensyon ng iba.
+D.	Hindi, dahil naniniwala siya na kapag ginawa niya ito ay makukuha niya ang atensyon ng iba.
 
 23.	Sa araw na ikaw ay maging kasapi na ng mundo ng paggawa, kailangan ang mainam na pagpapasiya. Alin sa sumusunod ang maaari mong maging batayan sa pagpili ng kurso at magkaroon kaagad ng trabaho?
 A.	Mga trabahong sa Pilipinas lang mayroon.

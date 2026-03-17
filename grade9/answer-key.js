@@ -1,4 +1,4 @@
-window.ANSWER_KEY_DATA = btoa(`A
+window.ANSWER_KEY_DATA = `A
 B
 C
 A
@@ -47,4 +47,4 @@ D
 C
 D
 B
-D`);
+D`;

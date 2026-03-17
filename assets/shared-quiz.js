@@ -1,9 +1,18 @@
 let questions = [];
+let userAnswers = []; // Suggestion #3: Track user answers
 
 const questionEl = document.getElementById("question");
 const optionsContainer = document.getElementById("options-container");
 const questionWrapper = document.getElementById("question-wrapper");
 const scoreDisplay = document.getElementById("score-display");
+const timerEl = document.createElement("div");
+timerEl.id = "quiz-timer";
+if (scoreDisplay) {
+    scoreDisplay.parentNode.insertBefore(timerEl, scoreDisplay.nextSibling);
+} else {
+    document.body.appendChild(timerEl);
+}
+
 const backBtn = document.querySelector(".btn-home");
 const nameBadge = document.getElementById("student-name-badge");
 const bgToggle = document.getElementById("bg-toggle");
@@ -12,11 +21,37 @@ const _audioProbe = document.createElement("audio");
 const _audioExt = _audioProbe && _audioProbe.canPlayType && _audioProbe.canPlayType("audio/wav") ? "wav" : "mp3";
 const correctAudio = new Audio("../assets/sounds/correct." + _audioExt);
 const incorrectAudio = new Audio("../assets/sounds/incorrect." + _audioExt);
-const APP_VERSION = "1.3.0";
+const APP_VERSION = "1.4.0"; // Updated version
 const versionEl = document.getElementById("app-version");
 if (versionEl) versionEl.textContent = APP_VERSION;
 const footerEl = document.querySelector(".app-footer");
 const loaderEl = document.getElementById("loader-overlay");
+
+const progressBarContainer = document.createElement("div");
+progressBarContainer.id = "timer-progress-container";
+const progressBar = document.createElement("div");
+progressBar.id = "timer-progress-bar";
+progressBarContainer.appendChild(progressBar);
+document.body.appendChild(progressBarContainer);
+
+let timerInterval = null;
+let isQuizActive = false;
+
+// Prevent accidental navigation
+window.addEventListener('beforeunload', (event) => {
+    if (isQuizActive) {
+        event.preventDefault();
+        event.returnValue = 'Are you sure you want to leave? Your progress will be lost.';
+    }
+});
+
+// Default configuration if not provided
+const config = window.QUIZ_CONFIG || {
+    grade: "10",
+    scoreKey: "g10_scores",
+    addedStudentsKey: "added_students_g10",
+    examTitle: "4th Quarter Grade 10 - ESP Examination"
+};
 
 function showLoader() {
     if (loaderEl) loaderEl.style.display = "flex";
@@ -35,8 +70,8 @@ let answered = false;
 let confirmEl = null;
 let feedbackEl = null;
 let nextBtn = null;
-const SCORE_KEY = "g8-tle_scores";
-const ADDED_STUDENTS_KEY = "added_students_g8-tle";
+const SCORE_KEY = config.scoreKey;
+const ADDED_STUDENTS_KEY = config.addedStudentsKey;
 let optionButtons = [];
 let nameInputEl = null;
 let startBtnEl = null;
@@ -54,9 +89,6 @@ function clearTransient() {
 
 /**
  * Normalizes a name string for reliable comparison.
- * - Trims leading/trailing whitespace.
- * - Replaces multiple internal spaces/tabs with a single space.
- * - Converts to lowercase.
  */
 function normalizeName(name) {
     if (!name) return "";
@@ -69,7 +101,7 @@ function normalizeName(name) {
 }
 
 function showNameForm() {
-    questionEl.textContent = "Enter your name to start the 4th Quarter Grade 8 - TLE Examination";
+    questionEl.textContent = "Enter your name to start the " + config.examTitle;
     optionsContainer.innerHTML = "";
     const input = document.createElement("input");
     input.type = "text";
@@ -122,12 +154,10 @@ function showNameForm() {
             console.log("Checking student list...");
             
             let text = "";
-            // Priority 1: Global variable from students-list.js (Serverless fallback)
             if (window.STUDENTS_LIST_DATA) {
                 console.log("Using local script data for student list.");
                 text = window.STUDENTS_LIST_DATA;
             } else {
-                // Priority 2: Fetch from server
                 try {
                     const listUrl = "students-list.txt?nocache=" + Date.now();
                     const resp = await fetch(listUrl);
@@ -144,17 +174,14 @@ function showNameForm() {
                 throw new Error("Student list data is empty or could not be loaded.");
             }
             
-            // Remove BOM if present
             text = text.replace(/^\uFEFF/, "");
 
-            // Parse and normalize names from the file
             const authorizedStudents = text.split(/\r?\n/)
                 .map(s => s.trim())
                 .filter(s => s.length > 0);
             
             console.log(`Loaded ${authorizedStudents.length} names from list.`);
             
-            // Also check newly added students from admin panel (localStorage)
             let newlyAdded = [];
             try {
                 const raw = localStorage.getItem(ADDED_STUDENTS_KEY);
@@ -171,7 +198,6 @@ function showNameForm() {
             let officialName = "";
             console.log(`Searching for input: "${val}" -> Normalized: "${normalizedInput}"`);
 
-            // Search in authorized list
             for (let name of authorizedStudents) {
                 const norm = normalizeName(name);
                 if (norm === normalizedInput) {
@@ -180,7 +206,6 @@ function showNameForm() {
                 }
             }
 
-            // Search in newly added list if not found yet
             if (!officialName) {
                 console.log(`Checking ${newlyAdded.length} extra students...`);
                 for (let name of newlyAdded) {
@@ -203,13 +228,12 @@ function showNameForm() {
 
             console.log(`Student found: "${officialName}"`);
 
-            studentName = officialName; // Use the official capitalization from the list
+            studentName = officialName; 
             if (nameBadge) {
                 nameBadge.textContent = studentName;
                 nameBadge.style.display = "inline-block";
             }
 
-            // Display student photo next to logo
             const logo = document.querySelector('.school-logo');
             if (logo) {
                 let photo = document.getElementById('student-photo');
@@ -217,7 +241,7 @@ function showNameForm() {
                     photo = document.createElement('img');
                     photo.id = 'student-photo';
                     photo.className = 'student-photo';
-                    photo.onerror = () => { photo.style.display = 'none'; }; // Hide if not found
+                    photo.onerror = () => { photo.style.display = 'none'; };
                     logo.parentNode.insertBefore(photo, logo.nextSibling);
                 }
                 photo.src = `../assets/students-photo/${encodeURIComponent(studentName)}.jpg`;
@@ -226,11 +250,14 @@ function showNameForm() {
 
             score = 0;
             current = 0;
+            userAnswers = []; // Reset answers
             nameInputEl = null;
             startBtnEl = null;
             console.log("Auth success. Loading questions...");
             await loadExternalQuestions();
             console.log("Questions loaded count:", questions.length);
+            isQuizActive = true;
+            startTimer();
             renderQuestion();
         } catch (e) {
             console.error("Auth check failed:", e);
@@ -248,6 +275,7 @@ function renderQuestion() {
     clearTransient();
     answered = false;
     selectedAnswer = null;
+
     if (footerEl) footerEl.style.display = "none";
 
     if (questions.length === 0) {
@@ -257,55 +285,22 @@ function renderQuestion() {
     }
 
     if (current >= questions.length) {
-        let scoreColor = "#e74c3c"; // Default Red (10 and below)
-        if (score > 40) scoreColor = "#27ae60"; // Green (41-50)
-        else if (score > 30) scoreColor = "#2980b9"; // Blue (31-40)
-        else if (score > 20) scoreColor = "#f1c40f"; // Dark Yellow/Gold (21-30)
-        else if (score > 10) scoreColor = "#e67e22"; // Orange (11-20)
-
-        questionEl.innerHTML = (studentName ? (studentName + ", ") : "") + 
-            "Tapos na ang pagsagot mo sa 4th Quarter Grade 8 - TLE Examination.<br>" +
-            "<span style='font-size: 2.5rem; color: " + scoreColor + "; display: block; margin-top: 15px; font-weight: 800;'>" + 
-            score + " / " + questions.length + "</span>";
-            
-        optionsContainer.innerHTML = "";
-        scoreDisplay.style.display = "block";
-        scoreDisplay.textContent = "Score: " + score;
-        if (footerEl) footerEl.style.display = "block";
-        
-        // Add Repeat Exam instruction message
-        const instructionMsg = document.createElement("p");
-        instructionMsg.innerHTML = "Would you like to retake the Examination?<br><small>Click the 'Back to Menu' button for another student to take the exam.</small>";
-        instructionMsg.style.marginTop = "20px";
-        instructionMsg.style.color = "#555";
-        instructionMsg.style.fontWeight = "600";
-        optionsContainer.appendChild(instructionMsg);
-
-        // Add Repeat Exam button
-        const repeatBtn = document.createElement("button");
-        repeatBtn.textContent = "Repeat Exam";
-        repeatBtn.className = "option-btn";
-        repeatBtn.style.marginTop = "20px";
-        repeatBtn.style.background = "linear-gradient(135deg, #6dd5ed, #2193b0)";
-        repeatBtn.style.color = "white";
-        repeatBtn.style.border = "none";
-        repeatBtn.onclick = () => {
-            if (confirm("Are you sure you want to repeat the exam? Your current score has already been recorded.")) {
-                score = 0;
-                current = 0;
-                renderQuestion();
-            }
-        };
-        optionsContainer.appendChild(repeatBtn);
-
-        recordAndOfferDownload();
+        showFinalScore();
         return;
     }
     const q = questions[current];
     questionEl.textContent = (current + 1) + ". " + q.q;
     optionsContainer.innerHTML = "";
     optionButtons = [];
-    q.a.forEach(opt => {
+
+    // Shuffle options before rendering
+    const shuffledOptions = [...q.a];
+    for (let i = shuffledOptions.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffledOptions[i], shuffledOptions[j]] = [shuffledOptions[j], shuffledOptions[i]];
+    }
+
+    shuffledOptions.forEach(opt => {
         const btn = document.createElement("button");
         btn.textContent = opt;
         btn.className = "option-btn";
@@ -315,6 +310,111 @@ function renderQuestion() {
     });
     scoreDisplay.style.display = "block";
     scoreDisplay.textContent = "Score: " + score;
+}
+
+function showFinalScore() {
+    isQuizActive = false;
+    stopTimer();
+    let scoreColor = "#e74c3c";
+    if (score > 40) scoreColor = "#27ae60";
+    else if (score > 30) scoreColor = "#2980b9";
+    else if (score > 20) scoreColor = "#f1c40f";
+    else if (score > 10) scoreColor = "#e67e22";
+
+    questionEl.innerHTML = (studentName ? (studentName + ", ") : "") + 
+        "Tapos na ang pagsagot mo sa " + config.examTitle + ".<br>" +
+        "<span style='font-size: 2.5rem; color: " + scoreColor + "; display: block; margin-top: 15px; font-weight: 800;'>" + 
+        score + " / " + questions.length + "</span>";
+        
+    optionsContainer.innerHTML = "";
+    scoreDisplay.style.display = "block";
+    scoreDisplay.textContent = "Score: " + score;
+    if (footerEl) footerEl.style.display = "block";
+    
+    // Add Repeat Exam instruction message
+    const instructionMsg = document.createElement("p");
+    instructionMsg.innerHTML = "Would you like to retake the Examination?<br><small>Click the 'Back to Menu' button for another student to take the exam.</small>";
+    instructionMsg.style.marginTop = "20px";
+    instructionMsg.style.color = "#555";
+    instructionMsg.style.fontWeight = "600";
+    optionsContainer.appendChild(instructionMsg);
+
+    // Suggestion #3: Add Review Answers button
+    const reviewBtn = document.createElement("button");
+    reviewBtn.textContent = "Review Answers";
+    reviewBtn.className = "option-btn";
+    reviewBtn.style.marginTop = "10px";
+    reviewBtn.style.background = "linear-gradient(135deg, #f093fb, #f5576c)";
+    reviewBtn.style.color = "white";
+    reviewBtn.style.border = "none";
+    reviewBtn.onclick = renderReview;
+    optionsContainer.appendChild(reviewBtn);
+
+    // Add Repeat Exam button
+    const repeatBtn = document.createElement("button");
+    repeatBtn.textContent = "Repeat Exam";
+    repeatBtn.className = "option-btn";
+    repeatBtn.style.marginTop = "10px";
+    repeatBtn.style.background = "linear-gradient(135deg, #6dd5ed, #2193b0)";
+    repeatBtn.style.color = "white";
+    repeatBtn.style.border = "none";
+    repeatBtn.onclick = () => {
+        if (confirm("Are you sure you want to repeat the exam? Your current score has already been recorded.")) {
+            score = 0;
+            current = 0;
+            userAnswers = [];
+            renderQuestion();
+        }
+    };
+    optionsContainer.appendChild(repeatBtn);
+
+    recordAndOfferDownload();
+}
+
+// Suggestion #3: Post-Quiz Review Screen implementation
+function renderReview() {
+    clearTransient();
+    questionEl.textContent = "Review Your Answers";
+    optionsContainer.innerHTML = "";
+    
+    const reviewList = document.createElement("div");
+    reviewList.className = "review-list";
+    reviewList.style.maxHeight = "400px";
+    reviewList.style.overflowY = "auto";
+    reviewList.style.textAlign = "left";
+    reviewList.style.padding = "10px";
+    reviewList.style.border = "1px solid #ddd";
+    reviewList.style.borderRadius = "8px";
+    reviewList.style.background = "#f9f9f9";
+
+    questions.forEach((q, index) => {
+        const userAnswer = userAnswers[index];
+        const isCorrect = userAnswer === q.correct;
+        
+        const item = document.createElement("div");
+        item.className = "review-item";
+        item.style.marginBottom = "20px";
+        item.style.paddingBottom = "10px";
+        item.style.borderBottom = "1px solid #eee";
+        
+        item.innerHTML = `
+            <p style="font-weight: 700; margin-bottom: 5px;">${index + 1}. ${q.q}</p>
+            <p style="margin: 0; color: ${isCorrect ? '#27ae60' : '#e74c3c'}">
+                <b>Your Answer:</b> ${userAnswer || "No answer"} ${isCorrect ? "✓" : "✗"}
+            </p>
+            ${!isCorrect ? `<p style="margin: 0; color: #27ae60"><b>Correct Answer:</b> ${q.correct}</p>` : ""}
+        `;
+        reviewList.appendChild(item);
+    });
+    
+    optionsContainer.appendChild(reviewList);
+    
+    const backToResultBtn = document.createElement("button");
+    backToResultBtn.textContent = "Back to Result";
+    backToResultBtn.className = "option-btn";
+    backToResultBtn.style.marginTop = "20px";
+    backToResultBtn.onclick = showFinalScore;
+    optionsContainer.appendChild(backToResultBtn);
 }
 
 function onOptionClick(opt, btn) {
@@ -327,7 +427,7 @@ function onOptionClick(opt, btn) {
 }
 
 function showConfirm() {
-    if (confirmEl) confirmEl.remove(); // Remove old modal if any
+    if (confirmEl) confirmEl.remove();
 
     confirmEl = document.createElement("div");
     confirmEl.className = "modal-overlay";
@@ -343,7 +443,6 @@ function showConfirm() {
 
     document.body.appendChild(confirmEl);
 
-    // Add a slight delay to allow the element to be in the DOM before adding the visible class
     setTimeout(() => {
         confirmEl.classList.add("visible");
     }, 10);
@@ -354,7 +453,6 @@ function showConfirm() {
     confirmYesBtnEl.addEventListener("click", () => confirmYes(confirmYesBtnEl));
     confirmNoBtnEl.addEventListener("click", () => confirmNo(confirmNoBtnEl));
 
-    // Add keyboard listeners
     document.addEventListener("keydown", handleConfirmKeydown);
 }
 
@@ -370,13 +468,10 @@ function handleConfirmKeydown(e) {
     }
 }
 
-
-
 function confirmNo(btn) {
     if (btn) btn.classList.add("confirm-selected");
     if (confirmEl) {
         confirmEl.classList.remove("visible");
-        // Wait for the transition to finish before removing the element
         setTimeout(() => {
             if (confirmEl) confirmEl.remove();
             confirmEl = null;
@@ -392,7 +487,6 @@ function confirmYes(btn) {
     answered = true;
     if (btn) btn.classList.add("confirm-selected");
     
-    // Remove confirmation modal immediately to prevent it from interfering with feedback modal
     if (confirmEl) {
         confirmEl.classList.remove("visible");
         const oldModal = confirmEl;
@@ -404,6 +498,9 @@ function confirmYes(btn) {
     confirmYesBtnEl = null;
     confirmNoBtnEl = null;
     document.removeEventListener("keydown", handleConfirmKeydown);
+
+    // Store user answer for review
+    userAnswers[current] = selectedAnswer;
 
     const correct = questions[current].correct;
     const hasKey = typeof correct === "string" && correct.length > 0;
@@ -430,7 +527,6 @@ function confirmYes(btn) {
         } catch (e) {}
     }
 
-    // Create Feedback Pop-up
     confirmEl = document.createElement("div");
     confirmEl.className = "modal-overlay";
     
@@ -460,7 +556,6 @@ function confirmYes(btn) {
 
     nextBtn = confirmEl.querySelector(".next-btn-pop");
     nextBtn.addEventListener("click", () => {
-        // Remove feedback modal
         if (confirmEl) {
             confirmEl.classList.remove("visible");
             const feedbackModal = confirmEl;
@@ -533,11 +628,12 @@ if (backBtn) {
         e.preventDefault();
         const href = backBtn.getAttribute("href");
         let msg = "Are you sure you want to leave this exam? Your current progress will not be saved.";
-        if (current >= questions.length && questions.length > 0) {
+        if (!isQuizActive) {
             msg = "Are you sure you want to leave this exam? Your current progress is saved.";
         }
         const ok = window.confirm(msg);
         if (ok && href) {
+            isQuizActive = false; // Disable the beforeunload prompt
             window.location.href = href;
         }
     });
@@ -575,15 +671,14 @@ if (themeToggle) {
 
 applyBackground();
 updateThemeToggleLabel();
+
 async function loadExternalQuestions() {
     try {
         let txt = "";
-        // Priority 1: Local JS data
         if (window.EXAM_QUESTIONS_DATA) {
             console.log("Using local script data for questions.");
             txt = window.EXAM_QUESTIONS_DATA;
         } else {
-            // Priority 2: Fetch
             const res = await fetch("exam-questions.txt?nocache=" + Date.now());
             if (res && res.ok) {
                 txt = await res.text();
@@ -596,20 +691,10 @@ async function loadExternalQuestions() {
                 questions = parsed;
                 try {
                     let keyTxt = "";
-                    // Priority 1: Local JS key
                     if (window.ANSWER_KEY_DATA) {
                         console.log("Using local script data for answer key.");
                         keyTxt = window.ANSWER_KEY_DATA;
-                        // Check if it's base64 encoded
-                        if (!keyTxt.includes("\n") && keyTxt.length > 20) {
-                            try {
-                                keyTxt = atob(keyTxt);
-                            } catch (e) {
-                                console.warn("Failed to decode base64 answer key, using as is.");
-                            }
-                        }
                     } else {
-                        // Priority 2: Fetch key
                         let keyRes = await fetch("answer-key.txt?nocache=" + Date.now());
                         if (keyRes && keyRes.ok) {
                             keyTxt = await keyRes.text();
@@ -623,8 +708,7 @@ async function loadExternalQuestions() {
                     if (keyTxt) applyAnswerKey(questions, keyTxt);
                 } catch (_) {}
 
-                // Group dependent questions before shuffling
-                const groupedQuestions = groupDependentQuestions(questions, '8-tle');
+                const groupedQuestions = groupDependentQuestions(questions, config.grade);
                 questions = shuffleArray(groupedQuestions);
             }
         }
@@ -633,20 +717,15 @@ async function loadExternalQuestions() {
     }
 }
 
-/**
- * Groups dependent questions together so they stay in sequence during shuffling.
- * Returns an array of either question objects or arrays of question objects (blocks).
- */
 function groupDependentQuestions(qs, grade) {
     const blocks = [];
     const visited = new Set();
 
-    // Define dependencies for each grade
     const dependencies = {
-        7: [[10, 11, 12, 13], [41, 42]], // 0-indexed: 11-14, 42-43
-        8: [[7, 8, 9], [26, 27, 28, 29]], // 0-indexed: 8-10, 27-30
-        9: [[20, 21]], // 0-indexed: 21-22
-        10: [[11, 12], [30, 31]] // 0-indexed: 12-13, 31-32
+        "7": [[10, 11, 12, 13], [41, 42]],
+        "8": [[7, 8, 9], [26, 27, 28, 29]],
+        "9": [[20, 21]],
+        "10": [[11, 12], [30, 31]]
     };
 
     const gradeDeps = dependencies[grade] || [];
@@ -679,9 +758,6 @@ function groupDependentQuestions(qs, grade) {
     return blocks;
 }
 
-/**
- * Shuffles the blocks and flattens them back into a single questions array.
- */
 function shuffleArray(blocks) {
     for (let i = blocks.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -698,8 +774,8 @@ function shuffleArray(blocks) {
     });
     return flattened;
 }
+
 function parseTxtQuestions(text) {
-    // Remove BOM if present
     if (text.charCodeAt(0) === 0xFEFF) {
         text = text.slice(1);
     }
@@ -708,7 +784,6 @@ function parseTxtQuestions(text) {
     let q = null;
     let opts = [];
     const flush = () => {
-        // Filter out null/undefined to get a clean list of options
         const cleanOpts = opts.filter(o => o !== null && o !== undefined);
         if (q && cleanOpts.length > 0) {
             qs.push({ q: q.trim(), a: cleanOpts, correct: null });
@@ -729,7 +804,6 @@ function parseTxtQuestions(text) {
             continue;
         }
         
-        // Handle options
         let lineHasLabel = false;
         labels.forEach((label) => {
             let startIdx = line.indexOf(label);
@@ -754,7 +828,6 @@ function parseTxtQuestions(text) {
                 let end = (i + 1 < currentLabelIndices.length) ? currentLabelIndices[i + 1].pos : line.length;
                 let optText = line.substring(start, end).trim();
                 if (optText) {
-                    // Place the option at the correct index (A=0, B=1, C=2, D=3)
                     opts[currentLabelIndices[i].idx] = optText;
                 }
             }
@@ -768,16 +841,19 @@ function parseTxtQuestions(text) {
     flush();
     return qs;
 }
+
 function applyAnswerKey(qs, keyText) {
     const letters = keyText.split(/\r?\n/).map(l => l.trim().toUpperCase()).filter(Boolean);
     const map = { A: 0, B: 1, C: 2, D: 3 };
     for (let i = 0; i < qs.length && i < letters.length; i++) {
-        const idx = map[letters[i]];
+        const letter = letters[i].charAt(0); // Ensure we only get the letter
+        const idx = map[letter];
         if (idx != null && qs[i].a[idx] != null) {
             qs[i].correct = qs[i].a[idx];
         }
     }
 }
+
 document.addEventListener("keydown", handleKeyShortcuts);
 
 function getScoreRecords() {
@@ -847,13 +923,7 @@ function exportToExcel() {
     }
 }
 
-/**
- * Submits the student's score to a Google Form via a background fetch.
- * This allows remote tracking without a complex backend.
- */
 async function submitToGoogleSheets(grade, name, sc, total) {
-    // Replace this URL with your Google Form action URL
-    // Instructions for the user will be provided separately.
     const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSc9Mk5vsuZnK1TdVwjoXicKiBDjm-ZLKvQZlmOo5_47uLSUzQ/formResponse"; 
     
     if (!GOOGLE_FORM_URL) {
@@ -863,16 +933,14 @@ async function submitToGoogleSheets(grade, name, sc, total) {
 
     const pct = total > 0 ? Math.round((sc / total) * 10000) / 100 : 0;
     
-    // Mapping: Replace entry.XXXX with your Google Form field IDs
     const formData = new FormData();
-    formData.append('entry.1027307320', name);    // Replace with Name field ID
-    formData.append('entry.1196781000', grade);   // Replace with Grade field ID
-    formData.append('entry.1111253196', sc);      // Replace with Score field ID
-    formData.append('entry.23851287', total);   // Replace with Total field ID
-    formData.append('entry.331970034', pct + '%'); // Replace with Pct field ID
+    formData.append('entry.1027307320', name);
+    formData.append('entry.1196781000', grade);
+    formData.append('entry.1111253196', sc);
+    formData.append('entry.23851287', total);
+    formData.append('entry.331970034', pct + '%');
 
     try {
-        // Use 'no-cors' mode to avoid CORS errors with Google Forms
         await fetch(GOOGLE_FORM_URL, {
             method: 'POST',
             mode: 'no-cors',
@@ -886,11 +954,8 @@ async function submitToGoogleSheets(grade, name, sc, total) {
 
 function recordAndOfferDownload() {
     addScoreRecord(studentName, score, questions.length);
-    
-    // Submit to Google Sheets for remote tracking
-    submitToGoogleSheets("8-tle", studentName, score, questions.length);
+    submitToGoogleSheets(config.grade, studentName, score, questions.length);
 
-    // Add a manual 'Download My Result' button for remote students
     const downloadBtn = document.createElement("button");
     downloadBtn.textContent = "Download My Result (.xlsx)";
     downloadBtn.className = "option-btn";
@@ -909,8 +974,62 @@ function recordAndOfferDownload() {
             "Date/Time": new Date().toLocaleString()
         }];
         const ws = XLSX.utils.json_to_sheet(data);
-        XLSX.utils.book_append_sheet(wb, ws, "grade8-tle-result");
-        XLSX.writeFile(wb, `${studentName}_Grade8TLE_Result.xlsx`);
+        XLSX.utils.book_append_sheet(wb, ws, "grade" + config.grade + "-result");
+        XLSX.writeFile(wb, `${studentName}_Grade${config.grade}_Result.xlsx`);
     };
     optionsContainer.appendChild(downloadBtn);
+}
+
+function startTimer() {
+    const settings = JSON.parse(localStorage.getItem('quiz_timer_settings')) || {};
+    if (!settings.enabled) {
+        timerEl.style.display = 'none';
+        progressBarContainer.style.display = 'none';
+        return;
+    }
+
+    const totalSeconds = (settings.duration || 30) * 60;
+    const warningSeconds = (settings.warning || 5) * 60;
+    let timeLeft = totalSeconds;
+    
+    timerEl.style.display = 'block';
+    timerEl.style.color = 'white'; // Reset color
+    progressBarContainer.style.display = 'block';
+    progressBar.style.width = '100%';
+    progressBar.style.backgroundColor = '#27ae60'; // Green
+
+    timerInterval = setInterval(() => {
+        const minutes = Math.floor(timeLeft / 60);
+        const seconds = timeLeft % 60;
+        timerEl.textContent = `Time Left: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+
+        // Progress bar update
+        const percent = (timeLeft / totalSeconds) * 100;
+        progressBar.style.width = percent + '%';
+
+        // Warning logic
+        if (timeLeft <= warningSeconds) {
+            timerEl.style.color = '#ff4757'; // Red warning
+            progressBar.style.backgroundColor = '#ff4757';
+            if (timeLeft <= 10) {
+                timerEl.classList.add('timer-pulse');
+            }
+        }
+
+        if (timeLeft <= 0) {
+            clearInterval(timerInterval);
+            timerEl.classList.remove('timer-pulse');
+            alert("Time's up! Your answers will be submitted automatically.");
+            showFinalScore();
+        } else {
+            timeLeft--;
+        }
+    }, 1000);
+}
+
+function stopTimer() {
+    clearInterval(timerInterval);
+    timerEl.style.display = 'none';
+    timerEl.classList.remove('timer-pulse');
+    progressBarContainer.style.display = 'none';
 }

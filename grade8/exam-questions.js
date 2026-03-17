@@ -193,7 +193,7 @@ D. Magpatuloy sa pagpapakalat ng mga negatibong komento sa social media upang ip
 38. Ang sekswalidad ay isang kumplikadong bahagi ng ating pagkatao na may kaugnayan sa ating oryentasyon, pagkakakilanlan, at mga personal na karanasan. Pumili ng pinakamahusay na sagot na nagpapakita ng mahalagang papel ng sekswalidad sa pag-unawa ng isang tao sa kanyang sarili at sa ibang tao.
 A. Ang sekswalidad ay mahalagang aspeto ng buhay ng tao.
 B. Ang sekswalidad ay isang lihim na aspeto ng ating buhay na hindi dapat pag-usapan sa publiko.
-C.  Ang sekswalidad ay tumutukoy lamang sa pisikal na aspekto ng katawan at hindi dapat bigyan ng pansin ang emosyonal na aspeto nito.
+C. Ang sekswalidad ay tumutukoy lamang sa pisikal na aspekto ng katawan at hindi dapat bigyan ng pansin ang emosyonal na aspeto nito.
 D. Ang sekswalidad ay tanging tungkol sa mga romantikong relasyon at hindi nauugnay sa ating pang-araw-araw na buhay.
 
 39. Mahalaga ang pag-uusap tungkol sa mga hangganan, mga layunin, at mga responsibilidad sa relasyon kasama ang mga magulang at sikaping sundin ang kanilang mga payo upang ito ay magkaroon ng positibong epekto sa sarili. Alin sa mga sumusunod ang pinakamahusay na hakbang na maaaring gawin ng isang kabataan na nagsisimula nang magka-interes sa pakikipagrelasyon?

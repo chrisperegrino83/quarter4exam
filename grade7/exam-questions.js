@@ -16,8 +16,7 @@ B. Binalewala ang layunin ng proyekto.
 C. Hindi nakikipagtulungan sa clean-up drive.
 D. Nagtatag ng libreng workshap para sa kabataan.
 
-4.	May isang ina na may tatlong anak na nagsisikap maging mabuting halimbawa.
-Paparating na ang halalan at nais niyang ipakita sa kanyang mga anak ang kahalagahan ng pagkakaroon ng mabuting pinuno para sa komunidad at bayan. Ano ang gagawin ng ina upang masigurong mabuti ang kanyang napiling kandidato?
+4.	May isang ina na may tatlong anak na nagsisikap maging mabuting halimbawa. Paparating na ang halalan at nais niyang ipakita sa kanyang mga anak ang kahalagahan ng pagkakaroon ng mabuting pinuno para sa komunidad at bayan. Ano ang gagawin ng ina upang masigurong mabuti ang kanyang napiling kandidato?
 A.	Ipagbili ang mga boto para magkapera. 
 B.	Makipagpulong sa pamilya para sa isahang pagboto.
 C.	Magsaliksik online at alamin ang bawat plataporma ng kandidato.
@@ -38,8 +37,8 @@ D.	Online privacy
 7.	Si Lino ay may natutuhan mula sa mga sermon ng pari na ang pagiging mabuting mamamayan ay bahagi ng kanyang pananampalataya. Ang pagmamalasakit, pagtulong sa kapuwa, at pagsunod sa batas ay bahagi ng kaniyang espirituwal na tungkulin. Ano ang natutuhan ni Lino tungkol sa kaugnayan ng kanyang espirituwalidad sa pagiging mabuting mamamayan?
 A. Naalala ni Lino na ang pagiging mabuting mamamayan ay walang kinalaman sa espirituwalidad.
 B. Nalaman ni Lino na ang pagiging mabuting mamamayan ay hindi dapat pagtuunan ng   pansin.
-C.Naintindihan ni Lino o na mahalaga lamang ang panalangin at hindi ang pagtulong sa   kapwa.
-D.Natutuhan ni Lino na ang pagsunod sa mga batas ng bansa at pagtulong sa kapwa ay bahagi ng kanyang pananampalataya.
+C. Naintindihan ni Lino o na mahalaga lamang ang panalangin at hindi ang pagtulong sa   kapwa.
+D. Natutuhan ni Lino na ang pagsunod sa mga batas ng bansa at pagtulong sa kapwa ay bahagi ng kanyang pananampalataya.
 
 8.	May isang klase kung saan tinalakay nila ang iba’t ibang isyu ng bayan tulad ng    kahirapan, korapsyon, at kawalan ng trabaho. Matapos ang klase, nag-isip ng mabuti ang batang si Ninya tungkol sa mga isyung ito. Nalaman niya na ang korapsyon ay isang malaking balakid sa pag-unlad ng bansa at nakakaapekto sa kalidad ng pamumuhay ng mga tao. Ano ang natutunan ni Ninya mula sa kanyang pakikinig tungkol sa mga isyu ng bayan?
 A.	Napansin ni Ninya na masyadong mababa ang kita ng mga manggagawa
@@ -50,24 +49,24 @@ D.	Naisip ni Ninya na ang edukasyon ay mahalaga sa para sa sarili at pag-unlad n
 9.	Ang "glokalisasyon" ay ang konsepto kung saan pinagsasama ang mga ideya, teknolohiya, o inobasyon mula sa global na lebel, at iniangkop ang mga ito upang maging akma sa lokal na konteksto at pangangailangan ng isang komunidad. At sinasabing ito ang magsisilbing tugon sa suliranin ng bayan. Ano ang kahulugan ng terminong glokalisasyon batay sa pahayag?
 A. Pagkakaroon ng pagkakaisa sa buong mundo
 B. Pagpapalawak ng lokal na produkto sa ibang bansa
-C.Paggamit ng makabagong teknolohiya para sa personal na kapakanan
-D.Pinagsasama ang mga ideya, teknolohiya, o inobasyon mula sa global na lebel, at iniangkop ang mga ito upang maging akma ito sa lokal na konteksto
+C. Paggamit ng makabagong teknolohiya para sa personal na kapakanan
+D. Pinagsasama ang mga ideya, teknolohiya, o inobasyon mula sa global na lebel, at iniangkop ang mga ito upang maging akma ito sa lokal na konteksto
 
 10.Ang Barangay Masigasig ay naglunsad ng proyekto upang mapanatili ang habitat ng mga hayop. Alin sa mga sumusunod ang isang paraan upang mapanatili ang habitat ng mga hayop?
 A.	Pagtatanim ng mga puno.
 B.	Pagpuputol ng mga puno.
 C.	Pagtatayo ng pabrika sa kagubatan.
-D.	 Pag-aalaga ng mga hayop sa bahay.
+D.	Pag-aalaga ng mga hayop sa bahay.
 
 11.	Sa pagninilay ni Mother Teresa, narinig niya ang tawag ng paglilingkod sa labas ng kumbento- ang tulungan ang mga batang napabayaan, mga taong hindi minahal at may sakit na hindi inalagaan. Ginamit niya ang kaniyang kaalaman sa panggagamot at kakayahan sa pagtuturo upang tugunan ang pangangailangang pisikal at espirituwal ng mga mahihirap. Anong katangian ang ipinamalas ni Mother Teresa?
 A.	Pagpapaunlad ng sarili
-B.	 Pagpapaunlad ng pagkatao 
+B.	Pagpapaunlad ng pagkatao 
 C.	Pagtatamo ng mapayapang lipunan 
 D.	Mabuting pakikisalamuha sa lipunan
 
 12.	Paano ipinapaliwanag ng buhay ni Mother Teresa ang mahalagang papel ng pamilya bilang gabay sa pagpili ng mga mabubuting pinuno na maglilingkod sa bayan?
 A.	Si Mother Teresa ay hindi naging gabay ng kanyang pamilya sa pagpili ng mga mabuting lider sa komunidad.
-B. Walang kaugnayan ang buhay ni Mother Teresa sa mga aral ng pamilya tungkol sa pagkilatis ng mabuting lider.
+B.  Walang kaugnayan ang buhay ni Mother Teresa sa mga aral ng pamilya tungkol sa pagkilatis ng mabuting lider.
 B.	Ang pamilya ni Mother Teresa ay walang epekto sa kanyang pagiging lider, at natutuhan niya ang lahat ng kanyang katangian mula sa kanyang karanasan sa labas ng pamilya.
 C.	Ipinapakita ng buhay ni Mother Teresa na ang mga prinsipyo at katangian ng isang mabuting lider ay kadalasang nagmumula sa mga aral at gabay ng pamilya, tulad ng pagpapakumbaba at malasakit sa kapuwa.
 
@@ -93,7 +92,7 @@ D.	Ang espirituwalidad ni Juan ay nagpapalakas sa kanyang malasakit at responsib
 A.	Magdaos ng mga aktibidad na pang-isports.  
 B.	Huwag makilahok sa mga gawaing pangkomunidad
 C.	Mag-organisa ng prayer meetings at spiritual retreats.
-D.Hayaan ang mga simbahan na magsagawa at magpalaganap nito.
+D.  Hayaan ang mga simbahan na magsagawa at magpalaganap nito.
 
 17.	Isang aktibong miyembro si Pedro ng simbahan kung saan natutuhan niya sa Bible study na ang pananampalataya ay nagtuturo ng paglilingkod sa komunidad, paggalang sa batas, at pagtulong sa nangangailangan. Bakit naiintindihan ni Pedro ang kaugnayan ng espirituwalidad sa pagiging mabuting mamamayan?
 A.	Dahil ang espirituwalidad ay hiwalay sa gawain bilang mamamayan.
@@ -116,10 +115,10 @@ D.	Ang glokalisasyon ay nangangahulugang iniangkop ang mga pandaigdigang ideya o
 20.	Ang mga Tboli na kilala sa kanilang mga handicraft ay nag-organisa ng isang kooperatiba na naglalayong mapalago ang kanilang mga produkto, tulad ng T’nalak. Sa pamamagitan ng pagsasama-sama, nagawa nilang mabawasan ang gastos sa produksyon at mas mapabuti ang kalidad ng kanilang mga produkto. Ang mga ito ay naging popular hindi lamang sa lokal na merkado kundi pati na rin sa mga turista, na nagdulot ng pagtaas ng kita at trabaho sa komunidad. Paano nakatulong ang glokalisasyon sa pag-unlad ng ekonomiya ng mga taga T’boli?
 A. Sa pamamagitan ng pagpapabaya sa lokal na industriya at pagtutok sa global trade lamang.
 B. Sa pamamagitan ng pagtutok lamang sa lokal na produkto at hindi pagtanggap ng global na ideya. 
-C.Sa pamamagitan ng panggagaya sa lahat ng global na pamamaraan kahit hindi ito akma sa lokal na kondisyon
-D.Sa pamamagitan ng pag-angkop ng mga global na teknolohiya at ideya upang mapahusay ang kanilang lokal na produkto at serbisyo. 
+C. Sa pamamagitan ng panggagaya sa lahat ng global na pamamaraan kahit hindi ito akma sa lokal na kondisyon
+D. Sa pamamagitan ng pag-angkop ng mga global na teknolohiya at ideya upang mapahusay ang kanilang lokal na produkto at serbisyo. 
 
-21.Ang sikat na artistang si Melai ay nag-organisa ng feeding program para sa mga batang lansangan at hinihikayat ang kanyang mga tagahanga na tumulong. Paano ipinamalas ni Melai ang katangian ng pagpapakatao sa pagtupad ng kaniyang tungkulin bilang isang kilalang personalidad?
+21. Ang sikat na artistang si Melai ay nag-organisa ng feeding program para sa mga batang lansangan at hinihikayat ang kanyang mga tagahanga na tumulong. Paano ipinamalas ni Melai ang katangian ng pagpapakatao sa pagtupad ng kaniyang tungkulin bilang isang kilalang personalidad?
 A. Sa pamamagitan ng pagdedepende lamang sa iba.
 B. Sa pamamagitan ng pag-iwas sa responsibilidad.
 C. Sa pamamagitan ng aktibong pagtulong at paghikayat sa iba.
@@ -141,8 +140,7 @@ D.	Ihalal ang kandidato dahil sa kanilang mga pangako sa kampanya kahit walang k
 A.	Ibahagi agad ang post upang ipaalam sa iba ang nakita mo.
 B.	Balewalain ang post at magpatuloy sa paggamit ng social media
 C.	Makipag argumento sa orihinal na nagpost at ipahiya siya sa harap ng iba.
-D.	Siguraduhin muna ang impormasyon at kung mapatunayang mali 
-i-report ang post saka ibahagi ang tamang impormasyon.
+D.	Siguraduhin muna ang impormasyon at kung mapatunayang mali i-report ang post saka ibahagi ang tamang impormasyon.
 
 25.	Si Mia ay aktibong miyembro ng simbahan at gusto niyang gamitin ang kaniyang pananampalataya upang makatulong sa paglutas ng problema ng basura sa kanilang komunidad. Paano maisasabuhay ni Mia ang kanyang espirituwalidad sa pagtugon sa problema ng basura at kalinisan sa kanilang komunidad?
 A.	Manatili na lamang sa bahay.
@@ -170,8 +168,8 @@ D.	Gumamit ng mga ideya mula sa global conservation techniques at magpatupad ng 
 29. Ang bayan ng Matatag ay nakararanas ng pagtaas ng kawalan ng trabaho. Sa ibang bansa, ginagamit ang online job platforms upang lumikha ng maraming oportunidad sa trabaho, ngunit sa ating bansa, maraming tao ang walang internet access. Paano maisakatuparan ang glokalisasyon sa bayan ng Matatag upang lumikha ng mga trabaho sa kabila ng kanilang limitadong access sa internet?
 A.	Magtrabaho sa ibang bansa gamit ang mga illegal na dokumento. 
 B.	Puwersahin ang lahat ng mamamayan na gumamit ng online platforms kahit walang internet connection
-C.Gumamit ng global online job platforms gaya ng jobstreet.com.ph at bilhin ang mga mahal na gadgets para sa bawat mamamayan.
-D.Lumikha ng hybrid na sistema kung saan may offline job matching centers (TESDA, PESO, JOB FAIRS atbp.) na nagbibigay ng access sa mga oportunidad mula sa global platforms. 
+C.	Gumamit ng global online job platforms gaya ng jobstreet.com.ph at bilhin ang mga mahal na gadgets para sa bawat mamamayan.
+D.	Lumikha ng hybrid na sistema kung saan may offline job matching centers (TESDA, PESO, JOB FAIRS atbp.) na nagbibigay ng access sa mga oportunidad mula sa global platforms. 
 
 30.	Ang pamilya Reyes ay nakatira sa lungsod ng Heneral Santos at aktibong nakikilahok sa mga gawain ng kanilang lungsod. Napansin nila na maraming kabataan ang nawawalan ng interes sa pakikilahok sa mga proyekto ng komunidad. Bakit mahalaga para sa pamilyang Reyes na ipakita ang katangian ng pagpapakatao para sa bayan?
 A.	Upang magpasikat at makilala sa lungsod
@@ -253,9 +251,9 @@ D.	Si Basilio ay nagdarasal lamang at hindi siya aktibong nakikisangkot sa mga i
 
 43.	Paano naaapektuhan ng pagninilay ni Basilio sa ang mga isyu ng bayan ang kanyang mga desisyon at pagkilos sa pagtulong sa kapwa?
 A.	Ang pagninilay ni Basilio ay hindi mahalaga at hindi niya ito ginagamit bilang batayan sa kanyang mga aksyon sa pagtulong.
-B.	 Si Basilio ay umaasa sa iba pang tao para gumawa ng desisyon kung paano siya makatutulong sa mga isyu ng bayan.
+B.	Si Basilio ay umaasa sa iba pang tao para gumawa ng desisyon kung paano siya makatutulong sa mga isyu ng bayan.
 C.	Ang pagninilay ni Basilio ay nagbibigay sa kanya ng mas malalim na kahulugan sa mga isyu ng bayan at nagtutulak sa kanya na maging aktibo sa pagtulong sa kapwa.
-D.	 Hindi naaapektuhan ni Basilio ang kanyang mga desisyon at patuloy lang siyang tumutulong sa kapwa kahit hindi siya nagmumuni-muni tungkol sa mga isyu ng bayan.
+D.	Hindi naaapektuhan ni Basilio ang kanyang mga desisyon at patuloy lang siyang tumutulong sa kapwa kahit hindi siya nagmumuni-muni tungkol sa mga isyu ng bayan.
 
 44.	Sa Pilipinas, maraming lokal na komunidad ang nahaharap sa suliranin tulad ng kahirapan, kakulangan sa edukasyon, at isyu sa kalikasan. Halimbawa rito, ang paggamit ng teknolohiya mula sa ibang bansa sa larangan ng Agrikultura na maaaring magbigay ng mas mahusay na solusyon sa mga problemang pang-agrikultura ng mga lokal na magsasaka. Paano mo mailalarawan ang interaksyon ng ating bansa at pandaigdigang ideya tungkol sa glokalisasyon? 
 A. Ang glokalisasyon ay walang epekto sa ating bansa.
@@ -283,7 +281,7 @@ D. I, III, IV
 
 48.	Napansin ni Sisa at ng kanyang mga kasamahan sa prayer group ang kakulangan ng pagkain sa kanilang komunidad. Nagdaos sila ng prayer vigil at nag-organisa ng feeding program gamit ang mga donasyon. Bumuo ng proseso kung paano maaaring gamitin ang espirituwalidad upang makatulong sa mga isyu ng komunidad. I. Magdaos ng mga prayer meetings upang magdasal para sa komunidad at magsagawa ng mga proyekto tulad ng feeding programs at outreach activities. II. Mag-organisa ng mga proyekto na tumutugon sa mga pangunahing pangangailangan ng komunidad, tulad ng pagbibigay ng pagkain, damit, at kalusugan. III. Maghikayat ng ibang tao na makiisa sa mga proyekto sa pamamagitan ng espirituwal na pagpapahalaga sa pagtulong sa kapwa. IV. Gumamit ng mga aral mula sa relihiyon upang magsimula ng mga community-driven na inisyatibo na nagsusulong ng katarungan at pagkakaisa.
 A. I, II, IIIII
-B.IV, III, II, I
+B. IV, III, II, I
 C. I, II, III, IV
 D. I, III, IV
 
