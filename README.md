@@ -59,7 +59,7 @@ Questions are stored in `exam-questions.js` (or `.txt`).
 ## **👨‍🏫 Admin Management**
 
 - **Admin Login**: Access the dashboard via `/admin/index.html`.
-- **Default Password**: `admin123` (Change this in [admin/index.html](file:///admin/index.html) for security).
+- **Default Admin Password**: Password is hashed using SHA-256 encryption (Change this in [admin/index.html](file:///admin/index.html) for security).
 - **Exporting Results**: Use the "Download Summary Results" button in the dashboard to generate an Excel file containing all local records.
 - **Managing Results**: Filter by grade level to see all student entries in the local storage and delete them if necessary.
 - **Student Photo Support**: Add student JPG photos to `assets/students-photo/` named exactly as they appear in the student list (e.g., `JUAN DELA CRUZ.jpg`).
