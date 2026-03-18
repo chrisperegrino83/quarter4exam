@@ -13,10 +13,9 @@ D
 C
 C
 C
-A
+C
 D
-D
-A
+C
 D
 D
 C
@@ -48,4 +47,4 @@ D
 A
 C
 C
-D`;
+C`;

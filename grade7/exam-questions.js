@@ -280,10 +280,10 @@ C. II, IV
 D. I, III, IV
 
 48.	Napansin ni Sisa at ng kanyang mga kasamahan sa prayer group ang kakulangan ng pagkain sa kanilang komunidad. Nagdaos sila ng prayer vigil at nag-organisa ng feeding program gamit ang mga donasyon. Bumuo ng proseso kung paano maaaring gamitin ang espirituwalidad upang makatulong sa mga isyu ng komunidad. I. Magdaos ng mga prayer meetings upang magdasal para sa komunidad at magsagawa ng mga proyekto tulad ng feeding programs at outreach activities. II. Mag-organisa ng mga proyekto na tumutugon sa mga pangunahing pangangailangan ng komunidad, tulad ng pagbibigay ng pagkain, damit, at kalusugan. III. Maghikayat ng ibang tao na makiisa sa mga proyekto sa pamamagitan ng espirituwal na pagpapahalaga sa pagtulong sa kapwa. IV. Gumamit ng mga aral mula sa relihiyon upang magsimula ng mga community-driven na inisyatibo na nagsusulong ng katarungan at pagkakaisa.
-A. I, II, IIIII
+A. I, II, IV, III
 B. IV, III, II, I
 C. I, II, III, IV
-D. I, III, IV
+D. I, III, IV, II
 
 49. Sa iyong baranggay, may mga dayuhang kumpanya na nag-aalok ng makabagong teknolohiya para sa pagsasaka, ngunit ito ay masyadong mahal para sa mga lokal na magsasaka. Paano mo ilalapat ang prinsipyo ng glokalisasyon upang matulungan sila?
 A. Tanggihan ang teknolohiya at manatili sa lumang paraan.
